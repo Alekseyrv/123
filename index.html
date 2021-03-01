@@ -12,13 +12,13 @@
 
         </ul>
     </div>
-    <button onclick="left(pagesOptions.pageContainer, pagesOptions.pageStart , pagesOptions.pagesTotal,pagesOptions.pagesToShow)"><<</button>
+    <button onclick="left(pagesOptions.pageContainer, pagesOptions.pageStart , pagesOptions.pagesTotal,pagesOptions.pagesToShow, pagesOptions.pageContainer)"><<</button>
     <button onclick="right()">>></button>
     <script>
         let pagesOptions= {
             pagesTotal: '15',
             pagesToShow: '5',
-            pageStart: '7',
+            pageStart: '3',
             pageContainer: '.ul-pagination'
         }
 
@@ -69,64 +69,124 @@
     setPages(pagesOptions.pageStart, pagesOptions.pagesToShow, pagesOptions.pagesTotal, pagesOptions.pageContainer, pagesOptions.pagesTotal )
    
     
-function left(ul, pageStart , max, pagesToShow){
-   arr = []
-    for (let value of document.querySelectorAll(ul+'>li')) {
-    //    console.log(value)
-      arr.push(parseInt(value.innerHTML))
-     //   if (value.classList.contains('active')) {
-     //       arr['active'] = (parseInt(value.innerHTML))
-     //   } else {
+function left(ul, pageStart , max, pagesToShow, pageContainer){
+  for (let value of document.querySelectorAll(ul+'>li')) {
+      if (value.classList.contains('active') && value.previousElementSibling )  { // ... 15  !(value.previousElementSibling.classList.contains('morePages')) )
+            if (!(value.previousElementSibling.classList.contains('morePages'))) {
+                value.classList.remove('active')
+                value.previousElementSibling.classList.add('active') 
+              } else {
+
+                  document.querySelectorAll(ul+'>li').forEach(el => {
             
-    //    }
-        
-        
-       // arr.push({'page': value.innerHTML})
 
-console.log(max)
-        if (value.classList.contains('active') && value.previousElementSibling )  { // ... 15  !(value.previousElementSibling.classList.contains('morePages')) )
+                  if (( !isNaN(el.innerText)) && (+el.innerText !== 1) ){// && (+el.innerText !== +max)){//&& (+el.innerText !== +max)){ // не ... и не 1 и не макс число
+                    let newValue =  +el.innerText - 1  
+                    el.innerText = newValue  
+                   // console.log(parseInt(max) - parseInt(el.innerText) + ' ; '+ parseInt(pagesToShow))
+                    // console.log(el.querySelector('active').innerText)
+                    //if  ( (+el.innerText !== 1) && (+el.innerText !== +max) ) {
+                           
+                  //  } else
 
-            console.log(parseInt(value.innerHTML) +' ' +parseInt(max))
-           // if !(value.previousElementSibling.classList.contains('morePages')) {}
-           if (value.previousElementSibling.classList.contains('morePages') && (parseInt(value.innerHTML) == parseInt(max)))  { // 1... 3 4 5 ... 15   = 15   1 2  3 4 ... 10
-            console.log('kek')
-            document.querySelector(ul).innerHTML = ''
-            for (let i = (max-pagesToShow)+1; i <=  max; i++) {  //15 14 13  for (let i = max; i >=  (max-pagesToShow); i--) {
+                    if (el.classList.contains('active') && (+el.innerText == 2) && (el.previousElementSibling.classList.contains('morePages')) ) {
+                      el.previousElementSibling.remove();
+
+                    }
+
+                    if ((el.classList.contains('active')) && (parseInt(max) - parseInt(el.innerText) == (parseInt(pagesToShow)+1) ) ){
+
+                      var morePages = document.createElement('li')
+                      morePages.className = ('morePages')
+                      morePages.innerHTML = '...'
+                      var maxPages = document.createElement('li')
+                      maxPages.innerHTML = max;
+                      document.querySelector(ul).append(morePages)
+                      document.querySelector(ul).append(maxPages)
+                    }
+
+                   if ((el.classList.contains('active')) && (parseInt(max) - parseInt(el.innerText) == (parseInt(pagesToShow)) ) ){
+                      var maxPages = document.createElement('li')
+                      maxPages.innerHTML = max;
+                     document.querySelector(ul).append(maxPages)
+
+                   }
+
+              
+                  }  
+
+
+
+                })// end for each
+
+                
+               }
+
+          }   
+      }
+      //console.log(document.querySelector(ul).firstChild.classList.contains('active'))
+     // console.log((document.querySelector(ul+'>.morePages').previousElementSibling))
+
+          if (document.querySelector(ul).firstChild.classList.contains('active') && (parseInt(document.querySelector(ul+'>.morePages').previousElementSibling.innerText) == parseInt(pagesToShow)+1 )  ){
+                     document.querySelector(ul+'>.morePages').previousElementSibling.remove();
+                    }
+
+          if (document.querySelector(ul).firstChild.classList.contains('active') && (parseInt(document.querySelector(ul+'>.morePages').previousElementSibling.innerText) == parseInt(pagesToShow) )  ){
+                     document.querySelector(ul+'>.morePages').previousElementSibling.remove();
+                    }
+
+    }
+    
+let list = document.querySelector(pagesOptions.pageContainer)
+
+
+
+       
+
+list.addEventListener('click', (e) => {
+  console.log(e.target) 
+  //if (e.target.tagName = 'LI') {
+  //  console.log(e.target.tagName)
+// }
+ if ((e.target.tagName == 'LI') && (!e.target.classList.contains('morePages')) ){
+  var s = list.querySelectorAll('li');
+  
+                  list.querySelector('.active').classList.remove('active');
+                  //document.querySelector('#foo\\:bar')
+                 // console.log(list.tagName = 'LI')
+                 
+                 // console.warn(e.target)
+                  if (e.target.tagName == 'LI') {
+                    console.log(e.target)
+                     e.target.classList.add('active')
+                     if ( e.target.previousElementSibling && e.target.previousElementSibling.classList.contains('morePages') && ( (parseInt(e.target.innerHTML) == parseInt(pagesOptions.pagesTotal))) ) { //morepages 
+              list.innerHTML = '';
+              for (let i = (pagesOptions.pagesTotal-pagesOptions.pagesToShow)+1; i <=  pagesOptions.pagesTotal; i++) {  //15 14 13  for (let i = max; i >=  (max-pagesToShow); i--) {
                 var element = document.createElement('li')
                 console.log(i)
-                if (i == (max-1)) {
+                if (i == (pagesOptions.pagesTotal)) {
                     element.className= 'active'
                 }
                 element.innerHTML = i    
-                document.querySelector(ul).append(element)
+                list.append(element)
             
             } 
             var morePages = document.createElement('li')
             morePages.className = ('morePages')
             var minPages = document.createElement('li')
+           // minPages.classList.add('index')
             morePages.innerHTML = '...'
             minPages.innerHTML = 1
-            document.querySelector(ul).prepend(morePages)
-            document.querySelector(ul).prepend(minPages)
-            
-           
-
-            //morePages.previousElementSibling.classList.add('active')
-
-
-
-           } else {
-               if (!(value.previousElementSibling.classList.contains('morePages'))) {
-                value.classList.remove('active')
-                value.previousElementSibling.classList.add('active') 
-               }
-
-          }   
-        }
-
-    }
+            list.prepend(morePages)
+            list.prepend(minPages)
+}//end if
+                  }
+                
 }
-    
+})
+
+
+
 
 
 function right(){
@@ -144,5 +204,13 @@ function right(){
 //}
 
     </script>
+    <style type="text/css">
+      .active {
+        font-weight: bold;
+      }
+      ul {
+        list-style: none
+      }
+    </style>
 </body>
 </html>
