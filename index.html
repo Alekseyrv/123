@@ -12,196 +12,171 @@
 
         </ul>
     </div>
-    <button onclick="left(pagesOptions.pageContainer, pagesOptions.pageStart , pagesOptions.pagesTotal,pagesOptions.pagesToShow, pagesOptions.pageContainer)"><<</button>
+    <button onclick="left()"><<</button>
     <button onclick="right()">>></button>
     <script>
-        let pagesOptions= {
-            pagesTotal: '15',
-            pagesToShow: '5',
-            pageStart: '3',
-            pageContainer: '.ul-pagination'
+        let options= {
+            newsToShow: '4',
+            startFrom: '1',
+            container: '.ul-pagination',
+            maxPages: '5'
         }
 
-        function kek(max,start,show) {
-            arr= []
-            for (let i = 1; i <= max; i++){
-                arr.push(i)
-            } 
-            
-            console.log(arr)//15
-            start = parseInt(start)
-            show = parseInt(show)
-            //if ((start + show) <= (show + 1)){
-            //    console.log(start+show )
-           // }
-         //  if ( (show - start) < -1 )
+let news = [
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+]
+let items = []
+let paginationList = document.querySelector(options.container)
+let counter = 0
+let pages = Math.ceil(news.length / options.newsToShow);
+var pagesCount = Math.ceil(pages / options.maxPages)
+console.log(pagesCount)
+console.log(pages)
+for (let i = 1; i < pages; i++) {
+    var element = document.createElement('li')
+    if (i <= options.maxPages) {
+        console.log(paginationList)
+    element.innerHTML = i
+    paginationList.append(element)
+    items.push(element)
+    } // else if (i == (parseInt(options.maxPages)+1) ) {
+       // element.innerHTML = '...'
+      //  paginationList.append(element)
+     //   items.push(element)
+     //  var max = document.createElement('li')
+     //   max.innerHTML = pages
+    //   paginationList.append(max) //max page num
+    //   items.push(max)
+ //   }   
+}//end for
+//console.log(items[0]['innerText']) //рендер первой страницы
+
+
+for (let value of items) {
+    console.log(value.innerHTML)
+}
+
+
+
+function setPage () {
+    for (let value of paginationList.querySelectorAll('li')) { 
+        if (parseInt(value.innerHTML) == parseInt(options.startFrom)){ 
+         value.classList.add('active')
         }
-        kek(pagesOptions.pagesTotal, pagesOptions.pageStart, pagesOptions.pagesToShow) 
-
-
-
-
-
-        function setPages(pageStart, pagesToShow, pagesTotal, pageContainer ) {
-           if (pageStart = pageStart ){
-            for (let i = 1; i <= pagesToShow; i++) {
-                var element = document.createElement('li')
-                if (i == pageStart) {
-                    element.className= 'active'
-                }
-                element.innerHTML = i    
-                document.querySelector(pageContainer).append(element)
-            
-            } 
-            var morePages = document.createElement('li')
-            morePages.className = ('morePages')
-            var maxPages = document.createElement('li')
-            morePages.innerHTML = '...'
-            maxPages.innerHTML = pagesTotal
-            document.querySelector(pageContainer).append(morePages)
-            document.querySelector(pageContainer).append(maxPages)
-           }
-
-           }
- 
-      
-      
-    setPages(pagesOptions.pageStart, pagesOptions.pagesToShow, pagesOptions.pagesTotal, pagesOptions.pageContainer, pagesOptions.pagesTotal )
-   
-    
-function left(ul, pageStart , max, pagesToShow, pageContainer){
-  for (let value of document.querySelectorAll(ul+'>li')) {
-      if (value.classList.contains('active') && value.previousElementSibling )  { // ... 15  !(value.previousElementSibling.classList.contains('morePages')) )
-            if (!(value.previousElementSibling.classList.contains('morePages'))) {
-                value.classList.remove('active')
-                value.previousElementSibling.classList.add('active') 
-              } else {
-
-                  document.querySelectorAll(ul+'>li').forEach(el => {
-            
-
-                  if (( !isNaN(el.innerText)) && (+el.innerText !== 1) ){// && (+el.innerText !== +max)){//&& (+el.innerText !== +max)){ // не ... и не 1 и не макс число
-                    let newValue =  +el.innerText - 1  
-                    el.innerText = newValue  
-                   // console.log(parseInt(max) - parseInt(el.innerText) + ' ; '+ parseInt(pagesToShow))
-                    // console.log(el.querySelector('active').innerText)
-                    //if  ( (+el.innerText !== 1) && (+el.innerText !== +max) ) {
-                           
-                  //  } else
-
-                    if (el.classList.contains('active') && (+el.innerText == 2) && (el.previousElementSibling.classList.contains('morePages')) ) {
-                      el.previousElementSibling.remove();
-
-                    }
-
-                    if ((el.classList.contains('active')) && (parseInt(max) - parseInt(el.innerText) == (parseInt(pagesToShow)+1) ) ){
-
-                      var morePages = document.createElement('li')
-                      morePages.className = ('morePages')
-                      morePages.innerHTML = '...'
-                      var maxPages = document.createElement('li')
-                      maxPages.innerHTML = max;
-                      document.querySelector(ul).append(morePages)
-                      document.querySelector(ul).append(maxPages)
-                    }
-
-                   if ((el.classList.contains('active')) && (parseInt(max) - parseInt(el.innerText) == (parseInt(pagesToShow)) ) ){
-                      var maxPages = document.createElement('li')
-                      maxPages.innerHTML = max;
-                     document.querySelector(ul).append(maxPages)
-
-                   }
-
-              
-                  }  
-
-
-
-                })// end for each
-
-                
-               }
-
-          }   
-      }
-      //console.log(document.querySelector(ul).firstChild.classList.contains('active'))
-     // console.log((document.querySelector(ul+'>.morePages').previousElementSibling))
-
-          if (document.querySelector(ul).firstChild.classList.contains('active') && (parseInt(document.querySelector(ul+'>.morePages').previousElementSibling.innerText) == parseInt(pagesToShow)+1 )  ){
-                     document.querySelector(ul+'>.morePages').previousElementSibling.remove();
-                    }
-
-          if (document.querySelector(ul).firstChild.classList.contains('active') && (parseInt(document.querySelector(ul+'>.morePages').previousElementSibling.innerText) == parseInt(pagesToShow) )  ){
-                     document.querySelector(ul+'>.morePages').previousElementSibling.remove();
-                    }
-
     }
-    
-let list = document.querySelector(pagesOptions.pageContainer)
-
-
-
-       
-
-list.addEventListener('click', (e) => {
-  console.log(e.target) 
-  //if (e.target.tagName = 'LI') {
-  //  console.log(e.target.tagName)
-// }
- if ((e.target.tagName == 'LI') && (!e.target.classList.contains('morePages')) ){
-  var s = list.querySelectorAll('li');
-  
-                  list.querySelector('.active').classList.remove('active');
-                  //document.querySelector('#foo\\:bar')
-                 // console.log(list.tagName = 'LI')
-                 
-                 // console.warn(e.target)
-                  if (e.target.tagName == 'LI') {
-                    console.log(e.target)
-                     e.target.classList.add('active')
-                     if ( e.target.previousElementSibling && e.target.previousElementSibling.classList.contains('morePages') && ( (parseInt(e.target.innerHTML) == parseInt(pagesOptions.pagesTotal))) ) { //morepages 
-              list.innerHTML = '';
-              for (let i = (pagesOptions.pagesTotal-pagesOptions.pagesToShow)+1; i <=  pagesOptions.pagesTotal; i++) {  //15 14 13  for (let i = max; i >=  (max-pagesToShow); i--) {
-                var element = document.createElement('li')
-                console.log(i)
-                if (i == (pagesOptions.pagesTotal)) {
-                    element.className= 'active'
-                }
-                element.innerHTML = i    
-                list.append(element)
-            
-            } 
-            var morePages = document.createElement('li')
-            morePages.className = ('morePages')
-            var minPages = document.createElement('li')
-           // minPages.classList.add('index')
-            morePages.innerHTML = '...'
-            minPages.innerHTML = 1
-            list.prepend(morePages)
-            list.prepend(minPages)
-}//end if
-                  }
-                
 }
-})
+setPage()
+//console.log(pages)
 
+startPos = (options.startFrom - 1) * options.newsToShow
+endPos = startPos + options.newsToShow
 
-
-
-
-function right(){
+let NewsArray = news.slice(startPos, endPos)
+console.log(NewsArray)
+for (let value of NewsArray) {
+    console.log(value['title'])
+}
+function left(){
 
 }
-       // let arr = []
-      //  console.log(pagesOptions.pagesTotal)
-     //  let 
-     //  console.log(pages.innerHTML)
-     //  for (let value of pages) {
-     //       //console.log(value.innerHTML);     
-      //         if (!(isNaN(value.innerHTML))) 
-      //         console.log(value.innerHTML) 
-      
-//}
+function right() {
+
+
+}
+
+
+
 
     </script>
     <style type="text/css">
