@@ -294,9 +294,11 @@ if ( pages - maxxx >= 2)  {
 } else if ( pages - maxxx == 1) {
     var pageMaxNum = document.createElement('li')
     pageMaxNum.innerHTML = pages
-          
+    
+            
 
          document.querySelector(options.container).append(pageMaxNum)
+         return active = false
          
 }
 }//active  
