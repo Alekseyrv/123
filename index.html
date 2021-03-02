@@ -115,20 +115,31 @@ let news = [
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+        {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+       {title: 'some title', subtitle: 'subtitle', img: 'image'},
+   {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+        {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'}
 ]
 let items = []
 let paginationList = document.querySelector(options.container)
 let counter = 0
 let pages = Math.ceil(news.length / options.newsToShow);
 var pagesCount = Math.ceil(pages / options.maxPages)
-console.log(pagesCount)
-console.log(pages)
+//var helpers = {min: 1, dots:'...', max: pages}
+//console.log(pagesCount)
+//console.log(pages)
 for (let i = 1; i < pages; i++) {
-    var element = document.createElement('li')
+   // var element = document.createElement('li')
     if (i <= options.maxPages) {
-        console.log(paginationList)
-    element.innerHTML = i
-    paginationList.append(element)
+  //      console.log(paginationList)
+       var  element= i
+  //  element.innerHTML = i
+    //paginationList.append(element)
     items.push(element)
     } // else if (i == (parseInt(options.maxPages)+1) ) {
        // element.innerHTML = '...'
@@ -138,14 +149,39 @@ for (let i = 1; i < pages; i++) {
      //   max.innerHTML = pages
     //   paginationList.append(max) //max page num
     //   items.push(max)
+
+
  //   }   
 }//end for
+//  console.log(helpers.max - Math.max(...items))
+ //   if (helpers.max - Math.max(...items) >=2 ) {
+  //      items.push(helpers.dots, helpers.max)
+   // }
+var min = {min:0}
+var dots = {dots:'...'}
+var max = {max: pages}
+console.log(items)
+
+
+
+
+   // if ((typeof items[i]) == 'number' ){
+      //      
+ //   console.log(newValue)
+ //   }
+
+
+    //items.push([i]+5)
+ //получаем массив всех слайдов [0,1,2,3]
+//if (max.max- Math.max(...items) >=2 ) {
+    //   items.push(dots, max)
+   // }
+//console.log(Math.max(...items))
+//console.log(Math.min(...items))
+//console.warn(Math.min(...items) - helpers.min)
 //console.log(items[0]['innerText']) //рендер первой страницы
 
-
-for (let value of items) {
-    console.log(value.innerHTML)
-}
+//console.log(helpers)
 
 
 
@@ -170,10 +206,102 @@ for (let value of NewsArray) {
 function left(){
 
 }
+
+
+
+
+console.log( '' - 1)
+
+
+
+//document.querySelector(options.container).innerHTML=''
+    let active = true 
 function right() {
+if (active) {
+  document.querySelector(options.container).innerHTML=''
+items.forEach(function(i, value) { 
+//  console.log(value)
+ 
+ var maxx = items.indexOf(Math.max(...items));
+//console.log ((parseInt(max.max) - Math.max(...items)))
+ //if ( typeof items[i] == 'number') {
+   if (((parseInt(pages) - Math.max(...items)) ==1 )) {
+    console.log('wwwwwwww')
+     // if ( maxx <= (options.maxPages - 1) ) {
+       // let newArr = items.slice(0, maxx+1)
+       //     console.warn(newArr)
+            return active = false
+
+    //  }
+
+    }       
+
+
+    else {
+
+      var newValue = items[value] + parseInt(options.maxPages)
+      items[value] = newValue
+       var li = document.createElement('li')
+       li.innerHTML = newValue
+       document.querySelector(options.container).append(li)
+
+
+       console.log(i)
+       console.log(maxx)
+       console.log(options.maxPages)
+       var maxxx = (Math.max(...items));
+      if ( maxxx < (parseInt(pages - parseInt(options.maxPages))) ) {
+        
+       // if (items[items.length - 1] < maxxx){
+          //  var dots = document.createElement('li')
+          //  dots.innerHTML = '...'
+          //  document.querySelector(options.container).append(dots)
+      //  }
+      //  console.log('kekeke')
+       //let newArr = items.slice(0, maxx+1)
+            //console.warn(newArr)
+       // var dots = document.createElement('li')
+      //  dots.innerHTML = '...'
+      //  document.querySelector(options.container).append(dots)
+
+      }
+
+    //   if (i <= (options.maxPages - 1)) {
+        //    var dots = document.createElement('li')
+         //   dots.innerHTML = '...'
+         //   document.querySelector(options.container).append(dots)
+     //  }
+    }
+
 
 
 }
+
+);
+var maxxx = Math.max(...items)
+let lastchild = document.querySelector(options.container).lastChild.innerHTML
+lastchild = parseInt(lastchild)
+if ( pages - maxxx >= 2)  {
+    var dots = document.createElement('li')
+    dots.innerHTML = '...'
+    var pageMaxNum = document.createElement('li')
+    pageMaxNum.innerHTML = pages
+          
+
+         document.querySelector(options.container).append(dots)
+         document.querySelector(options.container).append(pageMaxNum)
+   // if (document.querySelector(options.container).lastChild )
+} else if ( pages - maxxx == 1) {
+    var pageMaxNum = document.createElement('li')
+    pageMaxNum.innerHTML = pages
+          
+
+         document.querySelector(options.container).append(pageMaxNum)
+         
+}
+}//active  
+}//right
+
 
 
 
@@ -185,6 +313,11 @@ function right() {
       }
       ul {
         list-style: none
+
+      }
+      li {
+        display: inline-block;
+        padding: 15px;
       }
     </style>
 </body>
