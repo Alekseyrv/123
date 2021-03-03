@@ -178,6 +178,15 @@ function right() {
                     ul.append(li)
                 }
         }); // end foreach
+        var difference = options.maxPages - (items.indexOf(Math.max(...items))+1)
+        var indexC = items.length-1 - items.indexOf(Math.max(...items))
+        if ( (difference > 0) && ( Math.max(...items) == parseInt(pages)) ) {
+        items.splice(indexC + 1)
+        for (let i = 1; i <= indexC; i++) {
+        items.unshift(items[0] - 1)
+        console.log(items)
+        }
+        }
         console.warn(items)
         var kek = pages - Math.max(...items)
         console.log(kek)
