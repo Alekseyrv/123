@@ -36,24 +36,31 @@ let news = [
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+  {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+  {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
@@ -61,12 +68,18 @@ let news = [
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+
+{title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+
+{title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
+
+{title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
@@ -78,44 +91,8 @@ let news = [
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    
+
 
 
 
@@ -129,23 +106,35 @@ let items = []
 let paginationList = document.querySelector(options.container)
 let pages = Math.ceil(news.length / options.newsToShow);
 var pagesCount = Math.ceil(pages / options.maxPages)
-
+console.warn ('pages '+ pages)
 for (let i = 1; i < pages; i++) {
     if (i <= options.maxPages) {
         var  element= i
         items.push(element)
+
     } 
 }//end for
 
 
-(function (){
-    for (let value of paginationList.querySelectorAll('li')) { 
+(function () {
+       let ul = document.querySelector(options.container)
+    items.forEach(function(i,value){
+        var li = document.createElement('li')
+        li.innerHTML = value + 1
+        ul.append(li)
+    })
+})()
+
+function setStart(){
+    let ul = document.querySelector(options.container)
+    for (let value of ul.querySelectorAll('li')) { 
         if (parseInt(value.innerHTML) == 1 ){ 
          value.classList.add('active')
         }
     }
-})()
+}
 
+setStart()
 
 startPos = (options.startFrom - 1) * options.newsToShow
 endPos = startPos + options.newsToShow
@@ -163,57 +152,51 @@ function right() {
     console.log(items)
     let ul = document.querySelector(options.container)
     if (rightActive) {
-       
+
         ul.innerHTML=''
-        items.forEach(function(i, value) { 
-            if ( ( (parseInt(pages) - Math.max(...items)) == 1 ) ) {
-                var newValue = items[value] + parseInt(options.maxPages)
-                items[value] = newValue
-                var li = document.createElement('li')
+
+     
+        
+    items.forEach(function(i, value) { 
+        if (i !== 0) {
+        newValue = items[value] + parseInt(options.maxPages)
+        items[value] = newValue
+
+        var li = document.createElement('li')
                 li.innerHTML = newValue
                 ul.append(li)
-            }      
-                if (((parseInt(pages) - Math.max(...items)) == 0)) {
+              //  console.log( items.indexOf(Math.max(...items)) + 1 )
+               // console.log( options.maxPages)
+               // console.log()
+                if ( ( items.indexOf(Math.max(...items)) + 1 < options.maxPages ) && (pages - Math.max(...items)) == 0 ){
+                    console.warn(items) // 9, 10, 11, 8  - maxP = 4 pages = 11
+
+                    // length (3) - index()
+
+                    let index = (items.length-1) - items.indexOf(Math.max(...items))  //2
+                    console.error (index)
+                    for (let i = 1; i <= index; i++) {
+                         items[items.indexOf(Math.max(...items))+i] = 0
+                     }
+console.error(items)
                     return rightActive = false
-                } else {
-                    var newValue = items[value] + parseInt(options.maxPages)
-                    items[value] = newValue
-                    var li = document.createElement('li')
-                    li.innerHTML = newValue
-                    ul.append(li)
-                    
                 }
-        }); // end foreach
-        console.log(items)
-        console.warn( (items.indexOf(Math.max(...items)) + 1))
-        var difference = options.maxPages - (items.indexOf(Math.max(...items))+1)
-       var indexC = items.length-1 - items.indexOf(Math.max(...items))  //length < options.maxPages ( var dif = options.maxPages - length ) // dif = 1 for (let i = 1; i <= dif; i++) { items.unshift(items[0] - 1)
-      //var indexC =  (items.indexOf(Math.max(...items)) + 1 )
-        if ( (difference > 0) && ( Math.max(...items) == parseInt(pages)) ) {
-        items.splice(indexC )
-        console.warn(items)
-        for (let i = 1; i <= indexC; i++) {
-        items.unshift(items[0] - 1)
-        
+
+                if ((pages - items[items.length-1]) == 1 && ( items.indexOf(Math.max(...items))+1 == options.maxPages )) {
+            items.push(pages) // + последний элемент в массив если разница в показе = 1 25 26
+            var li = document.createElement('li')
+                    li.innerHTML = pages
+                    ul.append(li)
+            return rightActive = false
+        } 
+        if ((pages - items[items.length-1]) == 0 && ( items.indexOf(Math.max(...items))+1 == options.maxPages )) {
+            return rightActive = false
         }
-        console.log(items)
+
         }
-       // console.warn(items)
-        var kek = pages - Math.max(...items)
-        console.log(kek)
-    if ( pages - Math.max(...items) >= 2)  {
-        ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
-        return leftActive = true
-        }  
-    if ( pages - Math.max(...items) == 1) {
-        ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>${pages}</li>`
-        return rightActive = false    
-        }
-   if ( pages - Math.max(...items) == 0) {
-        ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML
-       return rightActive = false    
-       }
-     console.log(items)
+
+})// end foreach
+         console.warn(items)
     }//active  
 }//right
 console.log(items)
