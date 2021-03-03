@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul class="ul-pagination">
+
+        </ul>
+    </div>
+    <button onclick="left()"><<</button>
+    <button onclick="right()">>></button>
+    <script>
+        let options= {
+            newsToShow: '4',
+            startFrom: '1',
+            container: '.ul-pagination',
+            maxPages: '5'
+        }
+
+let news = [
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+
+
+
+
+
+
+
+   
+]
+let items = []
+let paginationList = document.querySelector(options.container)
+let pages = Math.ceil(news.length / options.newsToShow);
+var pagesCount = Math.ceil(pages / options.maxPages)
+
+for (let i = 1; i < pages; i++) {
+    if (i <= options.maxPages) {
+        var  element= i
+        items.push(element)
+    } 
+}//end for
+
+
+(function (){
+    for (let value of paginationList.querySelectorAll('li')) { 
+        if (parseInt(value.innerHTML) == 1 ){ 
+         value.classList.add('active')
+        }
+    }
+})()
+
+
+startPos = (options.startFrom - 1) * options.newsToShow
+endPos = startPos + options.newsToShow
+
+let NewsArray = news.slice(startPos, endPos)
+console.log(NewsArray)
+for (let value of NewsArray) {
+    console.log(value['title'])
+}
+
+let rightActive = true 
+var leftActive = false;
+
+function right() {
+    console.log(items)
+    let ul = document.querySelector(options.container)
+    if (rightActive) {
+       
+        ul.innerHTML=''
+        items.forEach(function(i, value) { 
+            if ( ( (parseInt(pages) - Math.max(...items)) == 1 ) ) {
+                var newValue = items[value] + parseInt(options.maxPages)
+                items[value] = newValue
+                var li = document.createElement('li')
+                li.innerHTML = newValue
+                ul.append(li)
+            }      
+                if (((parseInt(pages) - Math.max(...items)) == 0)) {
+                    return rightActive = false
+                } else {
+                    var newValue = items[value] + parseInt(options.maxPages)
+                    items[value] = newValue
+                    var li = document.createElement('li')
+                    li.innerHTML = newValue
+                    ul.append(li)
+                    
+                }
+        }); // end foreach
+        console.log(items)
+        console.warn( (items.indexOf(Math.max(...items)) + 1))
+        var difference = options.maxPages - (items.indexOf(Math.max(...items))+1)
+       var indexC = items.length-1 - items.indexOf(Math.max(...items))  //length < options.maxPages ( var dif = options.maxPages - length ) // dif = 1 for (let i = 1; i <= dif; i++) { items.unshift(items[0] - 1)
+      //var indexC =  (items.indexOf(Math.max(...items)) + 1 )
+        if ( (difference > 0) && ( Math.max(...items) == parseInt(pages)) ) {
+        items.splice(indexC )
+        console.warn(items)
+        for (let i = 1; i <= indexC; i++) {
+        items.unshift(items[0] - 1)
+        
+        }
+        console.log(items)
+        }
+       // console.warn(items)
+        var kek = pages - Math.max(...items)
+        console.log(kek)
+    if ( pages - Math.max(...items) >= 2)  {
+        ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
+        return leftActive = true
+        }  
+    if ( pages - Math.max(...items) == 1) {
+        ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>${pages}</li>`
+        return rightActive = false    
+        }
+   if ( pages - Math.max(...items) == 0) {
+        ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML
+       return rightActive = false    
+       }
+     console.log(items)
+    }//active  
+}//right
+console.log(items)
+
+function left (){
+    let ul = document.querySelector(options.container)
+
+    if (leftActive) {
+        rightActive = true
+        ul.innerHTML = ''
+       // ul.innerHTML=`<li>1</li><li>...</li>` 
+        items.forEach(function(i, value) { 
+            var newValue = items[value] - parseInt(options.maxPages)
+            items[value] = newValue
+            var li = document.createElement('li')
+            li.innerHTML = newValue
+            ul.append(li)
+        })//end foreach
+
+        if ((( Math.max(...items) - options.maxPages) == 0 )) {
+            ul.innerHTML = ul.innerHTML + `<li>...</li><li>${pages}</li>`
+            return leftActive = false
+            }
+        if ((( Math.max(...items) - options.maxPages) >= options.maxPages )) {
+            ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
+            return leftActive =true
+            }
+    }//active
+}//left
+
+    </script>
+    <style type="text/css">
+      .active {
+        font-weight: bold;
+      }
+      ul {
+        list-style: none
+
+      }
+      li {
+        display: inline-block;
+        padding: 15px;
+      }
+    </style>
+</body>
+</html>
