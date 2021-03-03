@@ -112,85 +112,35 @@ let news = [
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
     {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-        {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-       {title: 'some title', subtitle: 'subtitle', img: 'image'},
-   {title: 'some title', subtitle: 'subtitle', img: 'image'},
+
+
+
+
+
+
    
 ]
 let items = []
 let paginationList = document.querySelector(options.container)
-let counter = 0
 let pages = Math.ceil(news.length / options.newsToShow);
 var pagesCount = Math.ceil(pages / options.maxPages)
-//var helpers = {min: 1, dots:'...', max: pages}
-//console.log(pagesCount)
-//console.log(pages)
+
 for (let i = 1; i < pages; i++) {
-   // var element = document.createElement('li')
     if (i <= options.maxPages) {
-  //      console.log(paginationList)
-       var  element= i
-  //  element.innerHTML = i
-    //paginationList.append(element)
-    items.push(element)
-    } // else if (i == (parseInt(options.maxPages)+1) ) {
-       // element.innerHTML = '...'
-      //  paginationList.append(element)
-     //   items.push(element)
-     //  var max = document.createElement('li')
-     //   max.innerHTML = pages
-    //   paginationList.append(max) //max page num
-    //   items.push(max)
-
-
- //   }   
+        var  element= i
+        items.push(element)
+    } 
 }//end for
-//  console.log(helpers.max - Math.max(...items))
- //   if (helpers.max - Math.max(...items) >=2 ) {
-  //      items.push(helpers.dots, helpers.max)
-   // }
-var min = {min:0}
-var dots = {dots:'...'}
-var max = {max: pages}
-console.log(items)
 
 
-
-
-   // if ((typeof items[i]) == 'number' ){
-      //      
- //   console.log(newValue)
- //   }
-
-
-    //items.push([i]+5)
- //получаем массив всех слайдов [0,1,2,3]
-//if (max.max- Math.max(...items) >=2 ) {
-    //   items.push(dots, max)
-   // }
-//console.log(Math.max(...items))
-//console.log(Math.min(...items))
-//console.warn(Math.min(...items) - helpers.min)
-//console.log(items[0]['innerText']) //рендер первой страницы
-
-//console.log(helpers)
-
-
-
-function setPage () {
+(function (){
     for (let value of paginationList.querySelectorAll('li')) { 
-        if (parseInt(value.innerHTML) == parseInt(options.startFrom)){ 
+        if (parseInt(value.innerHTML) == 1 ){ 
          value.classList.add('active')
         }
     }
-}
-setPage()
-//console.log(pages)
+})()
+
 
 startPos = (options.startFrom - 1) * options.newsToShow
 endPos = startPos + options.newsToShow
@@ -200,83 +150,79 @@ console.log(NewsArray)
 for (let value of NewsArray) {
     console.log(value['title'])
 }
-function left(){
 
-}
-
-
-
-
-console.log( '' - 1)
-
-
-
-//document.querySelector(options.container).innerHTML=''
 let rightActive = true 
+var leftActive = false;
+
 function right() {
-if (rightActive) {
-  document.querySelector(options.container).innerHTML=''
-items.forEach(function(i, value) { 
-
- var maxx = items.indexOf(Math.max(...items));
-   if (((parseInt(pages) - Math.max(...items)) == 1 )) {
-        return rightActive = false
-    }       
-    else {
-      var newValue = items[value] + parseInt(options.maxPages)
-      items[value] = newValue
-       var li = document.createElement('li')
-       li.innerHTML = newValue
-       document.querySelector(options.container).append(li)
-       console.log(i)
-       console.log(maxx)
-       console.log(options.maxPages)
-       var maxxx = (Math.max(...items));
-    //  if ( maxxx < (parseInt(pages - parseInt(options.maxPages))) ) {
     
-    //  }
+    let ul = document.querySelector(options.container)
+    if (rightActive) {
+       
+        ul.innerHTML=''
+        items.forEach(function(i, value) { 
+            if ( ( (parseInt(pages) - Math.max(...items)) == 1 ) ) {
+                var newValue = items[value] + parseInt(options.maxPages)
+                items[value] = newValue
+                var li = document.createElement('li')
+                li.innerHTML = newValue
+                ul.append(li)
+            }      
+                if (((parseInt(pages) - Math.max(...items)) == 0)) {
+                    return rightActive = false
+                } else {
+                    var newValue = items[value] + parseInt(options.maxPages)
+                    items[value] = newValue
+                    var li = document.createElement('li')
+                    li.innerHTML = newValue
+                    ul.append(li)
+                }
+        }); // end foreach
+        console.warn(items)
+        var kek = pages - Math.max(...items)
+        console.log(kek)
+    if ( pages - Math.max(...items) >= 2)  {
+        ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
+        return leftActive = true
+        }  
+    if ( pages - Math.max(...items) == 1) {
+        ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>${pages}</li>`
+        return rightActive = false    
         }
-    }
-);
-var maxxx = Math.max(...items)
-let lastchild = document.querySelector(options.container).lastChild.innerHTML
-lastchild = parseInt(lastchild)
-if ( pages - maxxx >= 2)  {
-        var pageMaxNum = document.createElement('li')
-    pageMaxNum.innerHTML = pages
-     var dots = document.createElement('li')
-     var dots_right = document.createElement('li')
-     dots_right.innerHTML = '...'
-     var firstnum = document.createElement('li')
-     firstnum.innerHTML = 1
-    dots.innerHTML = '...'
-        document.querySelector(options.container).prepend(dots)
-        document.querySelector(options.container).prepend(firstnum)
-        document.querySelector(options.container).append(dots_right)
-        document.querySelector(options.container).append(pageMaxNum)
-   // if (document.querySelector(options.container).lastChild )
-} else if ( pages - maxxx == 1) {
-    var pageMaxNum = document.createElement('li')
-    pageMaxNum.innerHTML = pages
-     var dots = document.createElement('li')
-     var firstnum = document.createElement('li')
-     firstnum.innerHTML = 1
-    dots.innerHTML = '...'
-         document.querySelector(options.container).append(pageMaxNum)
-         document.querySelector(options.container).prepend(dots)
-         document.querySelector(options.container).prepend(firstnum)
-         console.log(items)
-         return rightActive = false    
-        }
+   if ( pages - Math.max(...items) == 0) {
+        ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML
+       return rightActive = false    
+       }
+     console.log(items)
     }//active  
-    //console.log(items)
 }//right
-
+console.log(items)
 
 function left (){
-    console.log(items)
-}
+    let ul = document.querySelector(options.container)
 
+    if (leftActive) {
+        rightActive = true
+        ul.innerHTML = ''
+       // ul.innerHTML=`<li>1</li><li>...</li>` 
+        items.forEach(function(i, value) { 
+            var newValue = items[value] - parseInt(options.maxPages)
+            items[value] = newValue
+            var li = document.createElement('li')
+            li.innerHTML = newValue
+            ul.append(li)
+        })//end foreach
+
+        if ((( Math.max(...items) - options.maxPages) == 0 )) {
+            ul.innerHTML = ul.innerHTML + `<li>...</li><li>${pages}</li>`
+            return leftActive = false
+            }
+        if ((( Math.max(...items) - options.maxPages) >= options.maxPages )) {
+            ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
+            return leftActive =true
+            }
+    }//active
+}//left
 
     </script>
     <style type="text/css">
