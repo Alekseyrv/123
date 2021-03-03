@@ -1,0 +1,9 @@
+var difference = options.maxPages - (items.indexOf(Math.max(...items))+1) 
+var indexC =  items.length-1 - items.indexOf(Math.max(...items))
+if (difference > 0) {
+    items.splice(indexC + 1)
+    for (let i = 1; i <= indexC; i++) {
+    items.unshift(items[0] - 1)
+    console.log(items)
+}
+}
