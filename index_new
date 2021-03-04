@@ -17,7 +17,6 @@
     <script>
         let options= {
             newsToShow: '4',
-            startFrom: '1',
             container: '.ul-pagination',
             maxPages: '10'
         }
