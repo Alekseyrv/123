@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul class="ul-pagination">
+
+        </ul>
+    </div>
+    <button onclick="left()"><<</button>
+    <button onclick="right()">>></button>
+    <script>
+        let options= {
+            newsToShow: '4',
+            container: '.ul-pagination',
+            maxPages: '5'
+        }
+
+let news = [
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+  {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+  {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+ 
+]
+let items = []
+let pages = Math.ceil(news.length / options.newsToShow);
+let rightActive = true
+let leftActive = false;
+//создаем начальный массив
+for (let i = 1; i < pages; i++) {
+    if (i <= options.maxPages) {
+        var element = i
+        items.push(element)
+    }
+} //end for
+
+(function () {
+    let ul = document.querySelector(options.container)
+    items.forEach(function (i, value) {
+        var li = document.createElement('li')
+        li.innerHTML = value + 1
+        ul.append(li)
+    })
+})()
+
+function setStart() {
+    let ul = document.querySelector(options.container)
+    for (let value of ul.querySelectorAll('li')) {
+        if (parseInt(value.innerHTML) == 1) {
+            value.classList.add('active')
+        }
+    }
+    ul.innerHTML = ul.innerHTML + `<li>...</li><li>${pages}</li>`
+}
+setStart()
+
+startPos = (options.startFrom - 1) * options.newsToShow
+endPos = startPos + options.newsToShow
+
+let NewsArray = news.slice(startPos, endPos)
+console.log(NewsArray)
+for (let value of NewsArray) {
+    console.log(value['title'])
+}
+
+function right() {
+   // console.log(items)
+    var leftActive = true;
+    let ul = document.querySelector(options.container)
+  // let indexes = document.querySelectorAll()
+    if (rightActive) {
+        //ul.innerHTML = ''
+        let active = ul.querySelector('.active')
+       // console.log(active.isNaN())
+        active.classList.remove('active')
+        active.nextElementSibling.classList.add('active')
+       //   active = ul.querySelector('.active')
+     //   if ( options.maxPages - parseInt(active.nextElementSibling.innerHTML) == 1 ){ // если элемент является предпоследним
+     //       console.log('kek')
+     // if active > maxpages
+          //  items.forEach(function (i, value) {
+         //     items[value]++
+//})
+              var children = ul.childNodes;
+        //      console.log(childrens)
+        console.warn(items)
+ for (var i = 0; i < children.length; ++i) {
+   // if ( !(isNaN(children[i].nextElementSibling)) && children[i].previousElementSibling ) // 1 ... 3 4 5
+   // if ( !(isNaN(value.nextElementSibling)) && value.previousElementSibling ) {
+      //  console.warn(children[i].nextElementSibling.innerHTML)
+     //   console.warn(children[i].previousElementSibling.innerHTML) 
+  //  }
+  //console.log(children[i])
+  console.log(active.innerHTML)
+  console.warn(items[items.length-1])
+  console.error(active.innerHTML)
+if ( (items[items.length-1] - active.innerHTML) == 1)
+{
+    console.log('kek')
+    children[i].innerHTML++
+  //  items[i]++
+}
+  if (!isNaN(children[i].innerHTML)){
+    console.warn(children[i].innerHTML)
+
+      //    if ( (!isNaN(children[i].nextElementSibling.innerHTML)) && (!isNaN(children[i].previousElementSibling.innerHTML))) {
+//}
+    }
+  }
+
+
+              //console.log(  ul.childNodes.('li') )
+              //ul.childNodes.('li')innerHTML = 'kek'
+             // li.innerHTML = items[value]
+            //   ul.append(li)
+               // if ( items[value] == pages ) {
+               //     return rightActive = false
+              //  } 
+        //    }) // end foreach
+      //  }
+        console.log(active.nextElementSibling.innerHTML)
+
+        //active.classList.remove('active')
+
+        console.log(items)
+        if ((Math.max(...items) == pages)) {
+            //  ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
+            ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML
+        }
+        if (((Math.max(...items) - options.maxPages) >= options.maxPages) && (Math.max(...items) !== pages)) {
+            ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
+        }
+    } //active  
+} //right
+
+function left() {
+    if (items[0] !== 1) {
+        let ul = document.querySelector(options.container)
+        ul.innerHTML = ''
+        // если элементов больше чем maxPages
+        if ((items.indexOf(Math.max(...items)) + 1 > options.maxPages) && (pages - Math.max(...items)) == 0) {
+            items.splice(items.indexOf(Math.max(...items) + 1))
+        }
+        // если больший элемент < maxPages
+        if ((items.indexOf(Math.max(...items)) + 1 < options.maxPages) && (pages - Math.max(...items)) == 0) {
+            let index = (items.length - 1) - items.indexOf(Math.max(...items)) // кол-во элементов > 0
+            for (let i = 1; i <= index; i++) {
+                items[items.indexOf(Math.max(...items)) + 1] = Math.max(...items) + 1 //меняем 0 на новые значения
+            }
+        }   // если элементов ровно как maxPages
+        items.forEach(function (i, value) {
+            newValue = items[value] - parseInt(options.maxPages)
+            items[value] = newValue
+            var li = document.createElement('li')
+            li.innerHTML = newValue
+            ul.append(li)
+        }) //end foreach
+        rightActive = true
+        //age > 18 ? true : false;
+        if ((items[0] == 1)) {
+            ul.innerHTML = ul.innerHTML + `<li>...</li><li>${pages}</li>`
+        }
+        if (((Math.max(...items) - options.maxPages) >= options.maxPages) && (items[0] !== 1)) {
+            ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
+        }
+    }//active
+} //}//left
+
+</script>
+    <style type="text/css">
+      .active {
+        font-weight: bold;
+      }
+      ul {
+        list-style: none
+
+      }
+      li {
+        display: inline-block;
+        padding: 15px;
+      }
+    </style>
+</body>
+</html>
