@@ -77,39 +77,91 @@ let pages = Math.ceil(news.length / options.newsToShow);
 let rightActive = true
 let leftActive = false;
 let current = 1;
- let ul = document.querySelector(options.container)
-//создаем начальный массив
-for (let i = 1; i < pages; i++) {
-    if (i <= options.maxPages) {
-        var element = i
-        items.push(element)
-    }
-} //end for
+let ul = document.querySelector(options.container)
 
-(function () {
-    let ul = document.querySelector(options.container)
-    items.forEach(function (i, value) {
-        var li = document.createElement('li')
-        li.innerHTML = value + 1
-        ul.append(li)
-    })
-})()
+
+
+
+let prevIndex = document.createElement('li')
+prevIndex.innerHTML = '1'
+let dots_left = document.createElement('li')
+dots_left.innerHTML = '...'
+let dots_right = document.createElement('li')
+dots_right.innerHTML = '...'
+let nextIdnex = document.createElement('li')
+nextIdnex.innerHTML = pages
 
 function setStart() {
-    let ul = document.querySelector(options.container)
-    for (let value of ul.querySelectorAll('li')) {
-        if (parseInt(value.innerHTML) == 1) {
-            value.classList.add('active')
-        }
-    }
-    //ul.innerHTML = ul.innerHTML + `<li>...</li><li>${pages}</li>`
+	items = []
+	//создаем начальный массив
+for (let i = 1; i < pages; i++) {
+	if (i <= options.maxPages) {
+		var element = i
+		items.push(element)
+	}
+} //end for
+	let ul = document.querySelector(options.container)
+	items.forEach(function(i, value) {
+		var li = document.createElement('li')
+		li.innerHTML = value + 1
+		ul.append(li)
+	})
+	ul.firstChild.classList.add('active')
+	current = 1
+
 }
-
-
 
 setStart()
 
+ul.addEventListener('click', (e) => {
+	if (e.target !== ul && !isNaN(e.target.innerHTML) && !e.target.classList.contains('.active')) {
+	ul.querySelector('.active').classList.remove('active')
+	e.target.classList.add('active')
+	current = e.target.innerHTML
+	let currentEl = ul.querySelector('.active')
+	if ( currentEl.nextElementSibling !== null && isNaN(currentEl.nextElementSibling.innerHTML) && currentEl.previousElementSibling !== null ){ // right //prev == n
+		console.log(currentEl.innerHTML )
+		console.log(currentEl.innerHTML == 1)
+		 
+						items.forEach(function(i, value) {
+			items[value]++
+			myArray[value].innerHTML = items[value]
+			
+			
+		})//end foreach
+						currentEl.classList.remove('active')
+			e.target.previousElementSibling.classList.add('active') // if prev not null
+		//current--
+		setLeftSide(items[0], items[items.length - 1], items)
+		setRightSide(items[0], items[items.length - 1], items)
+			//	if (currentEl.innerHTML == 1){
+			//console.log('setStart')
+		//}
+		
 
+	} else if (currentEl.innerHTML == 1 && isNaN(currentEl.nextElementSibling.innerHTML)){ //set start range
+		console.log('kek')
+		ul.innerHTML= ''
+		setStart()
+		ul.append(dots_right)
+		ul.append(nextIdnex)
+		current = 1
+	} // end of right
+	if ( currentEl.previousElementSibling !== null && isNaN(currentEl.previousElementSibling.innerHTML) ){
+		console.log('left')
+		items.forEach(function(i, value) {
+			items[value]--
+			myArray[value].innerHTML = items[value]
+			currentEl.classList.remove('active')
+			e.target.nextElementSibling.classList.add('active') // if prev not null
+			
+		})//end foreach
+			setLeftSide(items[0], items[items.length - 1], items)
+		setRightSide(items[0], items[items.length - 1], items)
+	}//end of left
+	}//end of 1 ... x, y, z ... n 
+	
+})
 
 
 startPos = (options.startFrom - 1) * options.newsToShow
@@ -118,194 +170,104 @@ endPos = startPos + options.newsToShow
 let NewsArray = news.slice(startPos, endPos)
 console.log(NewsArray)
 for (let value of NewsArray) {
-    console.log(value['title'])
+	console.log(value['title'])
 }
-
 
 var childrens = ul.childNodes
-//ul.innerHTML = ul.innerHTML + `<li>...</li><li>${pages}</li>`
- //let myArray = Array.from(ul.childNodes)
- ///var indexes = childrens.map(function(el) { 
-   // console.log(el)
- //})
-console.log(childrens)
+let myArray = Array.from(ul.childNodes)
+	if (pages - items[items.length - 1] >= 2) {
+		ul.append(dots_right)
+		ul.append(nextIdnex)
+		console.log(' >=2')
+	}
 function right() {
-   // console.log(items)
-    var leftActive = true;
-   
-  // let indexes = document.querySelectorAll()
-    if (rightActive) {
-        //ul.innerHTML = ''
-        let active = ul.querySelector('.active')
-       // console.log(active.isNaN())
+	var leftActive = true;
+	let active = ul.querySelector('.active')
 
+	if ((items[items.length - 1] - current) == 1 && (items[items.length - 1] !== pages)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
 
-       //   active = ul.querySelector('.active')
-     //   if ( options.maxPages - parseInt(active.nextElementSibling.innerHTML) == 1 ){ // если элемент является предпоследним
-     //       console.log('kek')
-     // if active > maxpages
-          //  items.forEach(function (i, value) {
-         //     items[value]++
-//})
-   
-
-
-  //  let myArray = Array.from(ul.childNodes)
-  //  console.log(myArray)
-
-//function isBigEnough(value) {
-//  return value.innerHTML >= 3;
-//}
-//myArray.filter((value, index) => {
-  //  console.log(value.innerHTML)
- //   return (parseInt(value.innerHTML < 5
-   
-//})
-
-
-
-//myArray.forEach(function (i, value){
-   // console.log(myArray[value].innerHTML)
-
-//})
-   // console.log(myArray)
-
-          //  console.log(childrens.filter)
-
-       // ul.innerHTML = ''
-
- //for (var i = 0; i < children.length; ++i) {
-  //  if (  !(isNaN(children[i].nextElementSibling.innerHTML)) ) {//&& children[i].previousElementSibling  ){
-   //children[i].innerHTML++
-   //    } else {
-   
-  
-    //   }
-   // if ( !(isNaN(children[i].nextElementSibling)) && children[i].previousElementSibling ) // 1 ... 3 4 5
-
-
-  //console.log(active.innerHTML)
-//  console.warn(items[items.length-1])
-
-
-//console.warn((items[items.length-1]) - current)
-
-if ( (items[items.length-1] - current ) == 1 && (items[items.length-1] !== pages)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
-
-    items.forEach(function (i, value){
-        items[value]++
-  //      console.info( value)
-        childrens[value].innerHTML = items[value]
-    })
-current++
-} else {
-   // current++
-   if (active.nextElementSibling !== null) {
-            active.nextElementSibling.classList.add('active')
-            active.classList.remove('active')
-            current++
-           // if (active.nextElementSibling.innerHTML !== pages){
-           //     
-           // }
-            
-   }
- 
-}
- 
-//{
-   // children[i].innerHTML++
-  
-//}
- // if (!isNaN(children[i].innerHTML)){
-  //  console.warn(children[i].innerHTML)
-
-      //    if ( (!isNaN(children[i].nextElementSibling.innerHTML)) && (!isNaN(children[i].previousElementSibling.innerHTML))) {
-//}
-  //  }
- // }
-
-
-              //console.log(  ul.childNodes.('li') )
-              //ul.childNodes.('li')innerHTML = 'kek'
-             // li.innerHTML = items[value]
-            //   ul.append(li)
-               // if ( items[value] == pages ) {
-               //     return rightActive = false
-              //  } 
-        //    }) // end foreach
-      //  }
-
-      //  console.log('next active '+active.nextElementSibling.innerHTML)
-
-        //active.classList.remove('active')
-
-     //   console.log(items)
-      //  if ((Math.max(...items) == pages)) {
-            //  ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
-      //      ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML
-      //  }
-       // if (((Math.max(...items) - options.maxPages) >= options.maxPages) && (Math.max(...items) !== pages)) {
-        //    ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
-       // }
-    } //active  
+		items.forEach(function(i, value) {
+			items[value]++
+			myArray[value].innerHTML = items[value]
+		})
+		current++
+	} else {
+		if (active.nextElementSibling !== null) {
+			active.nextElementSibling.classList.add('active')
+			active.classList.remove('active')
+			current++
+		}
+	}
+	
+setRightSide(items[0], items[items.length - 1], items)
 } //right
 
-function left() {
-let active = ul.querySelector('.active')
-//console.error(items[1] - current)
-if ( (items[1] - current ) == 0 && (items[0] !== 1)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
-   // console.log(items)
-    items.forEach(function (i, value){
-        items[value]--
-     //   console.info( value)
-        childrens[value].innerHTML = items[value]
-    })
-current--
-} else {
 
-   if (active.previousElementSibling !== null) {
-            active.previousElementSibling.classList.add('active')
-            active.classList.remove('active')
-            current--
-   }
+function left() {
+	let active = ul.querySelector('.active')
+	if ((items[1] - current) == 0 && (items[0] !== 1)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
+		items.forEach(function(i, value) {
+			items[value]--
+			myArray[value].innerHTML = items[value]
+		})
+		current--
+	} else {
+
+		if ((active.previousElementSibling !== null) && !(isNaN(active.previousElementSibling.innerHTML))) {
+			active.previousElementSibling.classList.add('active')
+			active.classList.remove('active')
+			current--
+		}
+	}
+	setLeftSide(items[0], items[items.length - 1], items)
+	console.log(myArray)
+}//left
+
+
+function setRightSide(firstIndex, lastIndex, array) {
+	if (pages - lastIndex == 1) {
+		ul.lastChild.previousElementSibling.remove() // remove ...
+	}
+
+	if (pages - lastIndex == 0 && current !== pages) {
+		ul.lastChild.remove()
+	}
+
+	if (firstIndex - 1 > 1) {
+		ul.prepend(dots_left)
+		ul.prepend(prevIndex)
+	}
+
+	if (firstIndex - 1 == 1) {
+		ul.prepend(prevIndex)
+	}
 }
 
-   // if (items[0] !== 1) {
-       // let ul = document.querySelector(options.container)
-      //  ul.innerHTML = ''
-        // если элементов больше чем maxPages
-      //  if ((items.indexOf(Math.max(...items)) + 1 > options.maxPages) && (pages - Math.max(...items)) == 0) {
-      //      items.splice(items.indexOf(Math.max(...items) + 1))
-      //  }
-        // если больший элемент < maxPages
-      //  if ((items.indexOf(Math.max(...items)) + 1 < options.maxPages) && (pages - Math.max(...items)) == 0) {
-       //     let index = (items.length - 1) - items.indexOf(Math.max(...items)) // кол-во элементов > 0
-       //     for (let i = 1; i <= index; i++) {
-       //        items[items.indexOf(Math.max(...items)) + 1] = Math.max(...items) + 1 //меняем 0 на новые значения
-       //     }
-      //  }   // если элементов ровно как maxPages
-     //   items.forEach(function (i, value) {
-         //   newValue = items[value] - parseInt(options.maxPages)
-         //   items[value] = newValue
-         //   var li = document.createElement('li')
-         //   li.innerHTML = newValue
-          //  ul.append(li)
-      //  }) //end foreach
-     //   rightActive = true
-        //age > 18 ? true : false;
-     //   if ((items[0] == 1)) {
-      //      ul.innerHTML = ul.innerHTML + `<li>...</li><li>${pages}</li>`
-      //  }
-      //  if (((Math.max(...items) - options.maxPages) >= options.maxPages) && (items[0] !== 1)) {
-        //    ul.innerHTML = `<li>1</li><li>...</li>` + ul.innerHTML + `<li>...</li><li>${pages}</li>`
-        }
-   // }//active
-//} //}//left
+function setLeftSide(firstIndex, lastIndex, array) {
+	if (firstIndex - 1 == 1) {
+		ul.firstChild.nextElementSibling.remove() // remove ...
+	}
 
-</script>
+	if (firstIndex - 1 == 0 && current !== 1) {
+		ul.firstChild.remove() // remove ...
+	}
+
+	if (pages - firstIndex == options.maxPages) {
+		ul.append(nextIdnex)
+		console.log('next')
+	}
+	if (pages - firstIndex > options.maxPages) {
+		ul.insertBefore(dots_right, ul.lastChild)
+
+	}
+}
+
+</script> 
     <style type="text/css">
       .active {
         font-weight: bold;
+        font-size: 23px;
+        text-decoration: underline;
       }
       ul {
         list-style: none
@@ -314,6 +276,8 @@ current--
       li {
         display: inline-block;
         padding: 15px;
+        cursor: pointer;
+        font-size: 20px;
       }
     </style>
 </body>
