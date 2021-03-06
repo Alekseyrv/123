@@ -106,62 +106,106 @@ for (let i = 1; i < pages; i++) {
 		li.innerHTML = value + 1
 		ul.append(li)
 	})
-	ul.firstChild.classList.add('active')
+//	ul.firstChild.classList.add('active')
 	current = 1
 
 }
 
-setStart()
+var l = pages-options.maxPages + 1
+function setEnd(){
+	items = []
+for (let i = l; i <= pages; i++) {
+//	if (i <= pages) {
+		var element = i
+		items.push(element)
+		
+//	}
+} //end for\
+console.log(items)
+let ul = document.querySelector(options.container)
+items.forEach(function(i, value) {
+		var li= document.createElement('li')
+		li.innerHTML = i 
+		ul.append(li)
+	})
+	console.log(ul)
+//	ul.firstChild.classList.add('active')
+	current = pages
 
+}
+
+
+
+setStart()
+let myArray = Array.from(ul.childNodes)
+ul.firstChild.classList.add('active')
 ul.addEventListener('click', (e) => {
 	if (e.target !== ul && !isNaN(e.target.innerHTML) && !e.target.classList.contains('.active')) {
 	ul.querySelector('.active').classList.remove('active')
 	e.target.classList.add('active')
 	current = e.target.innerHTML
 	let currentEl = ul.querySelector('.active')
-	if ( currentEl.nextElementSibling !== null && isNaN(currentEl.nextElementSibling.innerHTML) && currentEl.previousElementSibling !== null ){ // right //prev == n
-		console.log(currentEl.innerHTML )
-		console.log(currentEl.innerHTML == 1)
-		 
-						items.forEach(function(i, value) {
+	console.log(Math.min(...items))
+
+	if ( currentEl.nextElementSibling !== null && isNaN(currentEl.nextElementSibling.innerHTML) && currentEl.previousElementSibling !== null ){ // right след - существует, след - ..., пред. существует
+		items.forEach(function(i, value) {
 			items[value]++
 			myArray[value].innerHTML = items[value]
-			
-			
+			console.log(myArray[value])
 		})//end foreach
-						currentEl.classList.remove('active')
-			e.target.previousElementSibling.classList.add('active') // if prev not null
-		//current--
+		currentEl.classList.remove('active')
+		e.target.previousElementSibling.classList.add('active') // if prev not null
+		console.log(items)
+		
 		setLeftSide(items[0], items[items.length - 1], items)
 		setRightSide(items[0], items[items.length - 1], items)
-			//	if (currentEl.innerHTML == 1){
-			//console.log('setStart')
-		//}
-		
+	} 
 
-	} else if (currentEl.innerHTML == 1 && isNaN(currentEl.nextElementSibling.innerHTML)){ //set start range
-		console.log('kek')
-		ul.innerHTML= ''
-		setStart()
-		ul.append(dots_right)
-		ul.append(nextIdnex)
-		current = 1
-	} // end of right
-	if ( currentEl.previousElementSibling !== null && isNaN(currentEl.previousElementSibling.innerHTML) ){
-		console.log('left')
+	if ( currentEl.previousElementSibling !== null && isNaN(currentEl.previousElementSibling.innerHTML) && currentEl.previousElementSibling !== null && parseInt(currentEl.innerHTML) !== pages){ // right след - существует, след - ..., пред. существует
 		items.forEach(function(i, value) {
 			items[value]--
 			myArray[value].innerHTML = items[value]
-			currentEl.classList.remove('active')
-			e.target.nextElementSibling.classList.add('active') // if prev not null
-			
+			console.log(myArray[value])
 		})//end foreach
-			setLeftSide(items[0], items[items.length - 1], items)
+		currentEl.classList.remove('active')
+		e.target.nextElementSibling.classList.add('active') // if prev not null
+		console.log(items)
+		
+		setLeftSide(items[0], items[items.length - 1], items)
 		setRightSide(items[0], items[items.length - 1], items)
-	}//end of left
+	} 
+
+	
+
+	if ( currentEl.innerHTML == 1 && (Math.min(...items)  - 1 > 1 ) ){ // click on 1
+		ul.innerHTML = ''
+		setStart()
+		myArray = Array.from(ul.childNodes)
+		ul.firstChild.classList.add('active')
+		console.log(myArray)
+		if (pages - items[items.length - 1] >= 2) {
+			ul.append(dots_right)
+			ul.append(nextIdnex)
+		}
+
+
+	} 
+	
+	if ( parseInt(currentEl.innerHTML) == pages && (pages - Math.max(...items) > 1 ) ){ // click on last
+		ul.innerHTML = ''
+		setEnd()
+		myArray = Array.from(ul.childNodes)
+		//ul.firstChild.classList.add('active')
+		console.log(myArray)
+
+		//if (pages - items[items.length - 1] >= 2) {
+			//ul.append(dots_right)
+		//	ul.append(nextIdnex)
+	//	}
 	}//end of 1 ... x, y, z ... n 
 	
-})
+}})
+
 
 
 startPos = (options.startFrom - 1) * options.newsToShow
@@ -172,18 +216,18 @@ console.log(NewsArray)
 for (let value of NewsArray) {
 	console.log(value['title'])
 }
+//let myArray = Array.from(ul.childNodes)
 
-var childrens = ul.childNodes
-let myArray = Array.from(ul.childNodes)
-	if (pages - items[items.length - 1] >= 2) {
-		ul.append(dots_right)
-		ul.append(nextIdnex)
+if (pages - items[items.length - 1] >= 2) {
+	ul.append(dots_right)
+	ul.append(nextIdnex)
 		console.log(' >=2')
-	}
+}
 function right() {
+	
 	var leftActive = true;
 	let active = ul.querySelector('.active')
-
+	
 	if ((items[items.length - 1] - current) == 1 && (items[items.length - 1] !== pages)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
 
 		items.forEach(function(i, value) {
@@ -193,8 +237,9 @@ function right() {
 		current++
 	} else {
 		if (active.nextElementSibling !== null) {
-			active.nextElementSibling.classList.add('active')
 			active.classList.remove('active')
+			active.nextElementSibling.classList.add('active')
+			
 			current++
 		}
 	}
@@ -239,25 +284,31 @@ function setRightSide(firstIndex, lastIndex, array) {
 	}
 
 	if (firstIndex - 1 == 1) {
+		prevIndex.classList.remove('active')
 		ul.prepend(prevIndex)
+		
 	}
 }
 
 function setLeftSide(firstIndex, lastIndex, array) {
-	if (firstIndex - 1 == 1) {
+	if ( (firstIndex - 1 == 1) && isNaN(ul.firstChild.nextElementSibling.innerHTML) ){
 		ul.firstChild.nextElementSibling.remove() // remove ...
+		console.log('1')
+		console.log(items)
 	}
 
 	if (firstIndex - 1 == 0 && current !== 1) {
 		ul.firstChild.remove() // remove ...
+		console.log('2')
 	}
 
 	if (pages - firstIndex == options.maxPages) {
 		ul.append(nextIdnex)
-		console.log('next')
+		console.log('3')
 	}
 	if (pages - firstIndex > options.maxPages) {
 		ul.insertBefore(dots_right, ul.lastChild)
+		console.log('4')
 
 	}
 }
