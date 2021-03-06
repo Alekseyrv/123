@@ -192,16 +192,19 @@ ul.addEventListener('click', (e) => {
 	} 
 	
 	if ( parseInt(currentEl.innerHTML) == pages && (pages - Math.max(...items) > 1 ) ){ // click on last
+		console.log('123')
 		ul.innerHTML = ''
 		setEnd()
 		myArray = Array.from(ul.childNodes)
 		//ul.firstChild.classList.add('active')
 		console.log(myArray)
-
-		//if (pages - items[items.length - 1] >= 2) {
-			//ul.append(dots_right)
-		//	ul.append(nextIdnex)
-	//	}
+		console.log(pages - items[items.length - 1])
+		if ( pages-items[0]  >= 2) {
+			ul.prepend(dots_left)
+			ul.prepend(prevIndex)
+			current = pages
+			ul.lastChild.classList.add('active')
+	}
 	}//end of 1 ... x, y, z ... n 
 	
 }})
@@ -303,7 +306,10 @@ function setLeftSide(firstIndex, lastIndex, array) {
 	}
 
 	if (pages - firstIndex == options.maxPages) {
-		ul.append(nextIdnex)
+		lastIndexNum = document.createElement('li')
+		lastIndexNum.innerHTML = lastIndex+1
+		ul.append(lastIndexNum)
+		console.log(lastIndexNum)
 		console.log('3')
 	}
 	if (pages - firstIndex > options.maxPages) {
