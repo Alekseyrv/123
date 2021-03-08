@@ -20,56 +20,56 @@
         }
 
 let news = [
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-  {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-  {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
- {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
- {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
- {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
- {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
-    {title: 'some title', subtitle: 'subtitle', img: 'image'},
+    {title: '1111', subtitle: 'subtitle1', img: 'image'},
+    {title: '2222', subtitle: 'subtitle2', img: 'image'},
+    {title: '3333', subtitle: 'subtitle3', img: 'image'},
+    {title: '4444', subtitle: 'subtitle4', img: 'image'},
+    {title: '5555', subtitle: 'subtitle5', img: 'image'},
+    {title: '6666', subtitle: 'subtitle6', img: 'image'},
+    {title: '7777', subtitle: 'subtitle7', img: 'image'},
+    {title: '8888', subtitle: 'subtitle8', img: 'image'},
+    {title: '9999', subtitle: 'subtitle9', img: 'image'},
+    {title: '1010', subtitle: 'subtitle0', img: 'image'},
+    {title: '1111', subtitle: 'subtitle11', img: 'image'},
+    {title: '1212', subtitle: 'subtitle12', img: 'image'},
+    {title: '1313', subtitle: 'subtitle13', img: 'image'},
+  {title: '1414', subtitle: 'subtitle14', img: 'image'},
+    {title: '1515', subtitle: 'subtitle15', img: 'image'},
+    {title: '1616', subtitle: 'subtitle16', img: 'image'},
+    {title: '1717', subtitle: 'subtitle17', img: 'image'},
+  {title: '1818', subtitle: 'subtitle18', img: 'image'},
+    {title: '1919', subtitle: 'subtitle19', img: 'image'},
+    {title: '2020', subtitle: 'subtitle20', img: 'image'},
+    {title: '2121', subtitle: 'subtitle21', img: 'image'},
+ {title: '2222', subtitle: 'subtitle22', img: 'image'},
+    {title: '2323', subtitle: 'subtitle23', img: 'image'},
+    {title: '2424', subtitle: 'subtitle24', img: 'image'},
+    {title: '2525', subtitle: 'subtitle25', img: 'image'},
+ {title: '2626', subtitle: 'subtitle26', img: 'image'},
+    {title: '2727', subtitle: 'subtitle27', img: 'image'},
+    {title: '2828', subtitle: 'subtitle28', img: 'image'},
+    {title: '2929', subtitle: 'subtitle29', img: 'image'},
+ {title: '3030', subtitle: 'subtitle30', img: 'image'},
+    {title: '3131', subtitle: 'subtitle31', img: 'image'},
+    {title: '3232', subtitle: 'subtitle32', img: 'image'},
+    {title: '3333', subtitle: 'subtitle33', img: 'image'},
+ {title: '3434', subtitle: 'subtitle34', img: 'image'},
+    {title: '3535', subtitle: 'subtitle35', img: 'image'},
+    {title: '3636', subtitle: 'subtitle36', img: 'image'},
+    {title: '3737', subtitle: 'subtitle37', img: 'image'},
+    {title: '3838', subtitle: 'subtitle38', img: 'image'},
+    {title: '3939', subtitle: 'subtitle39', img: 'image'},
+    {title: '4040', subtitle: 'subtitle40', img: 'image'},
+    {title: '4141', subtitle: 'subtitle41', img: 'image'},
+    {title: '4242', subtitle: 'subtitle42', img: 'image'},
+    {title: '4343', subtitle: 'subtitle43', img: 'image'},
+    {title: '4444', subtitle: 'subtitle44', img: 'image'},
+    {title: '4545', subtitle: 'subtitle45', img: 'image'},
+    {title: '4646', subtitle: 'subtitle46', img: 'image'},
+    {title: '4747', subtitle: 'subtitle47', img: 'image'},
+    {title: '4848', subtitle: 'subtitle48', img: 'image'},
+    {title: '4949', subtitle: 'subtitle49', img: 'image'},
+    {title: '50', subtitle: 'subtitle50', img: 'image'},
     
 ]
 let items = []
@@ -78,9 +78,6 @@ let rightActive = true
 let leftActive = false;
 let current = 1;
 let ul = document.querySelector(options.container)
-
-
-console.log(pages)
 
 let prevIndex = document.createElement('li')
 prevIndex.innerHTML = '1'
@@ -108,35 +105,13 @@ for (let i = 1; i < pages; i++) {
 	})
 //	ul.firstChild.classList.add('active')
 	current = 1
-
+	ul.append(dots_right)
+	ul.append(nextIndex)
+	showContent(current)
 }
-
-var l = pages-options.maxPages + 1
-function setEnd(){
-	items = []
-for (let i = l; i <= pages; i++) {
-//	if (i <= pages) {
-		var element = i
-		items.push(element)
-		
-//	}
-} //end for\
-console.log(items)
-let ul = document.querySelector(options.container)
-items.forEach(function(i, value) {
-		var li= document.createElement('li')
-		li.innerHTML = i 
-	//	ul.append(li)
-	})
-	console.log(ul)
-//	ul.firstChild.classList.add('active')
-	current = pages
-
-}
-
-
 
 setStart()
+
 let myArray = Array.from(ul.childNodes)
 ul.firstChild.classList.add('active')
 ul.addEventListener('click', (e) => {
@@ -144,89 +119,74 @@ ul.addEventListener('click', (e) => {
 	ul.querySelector('.active').classList.remove('active')
 	e.target.classList.add('active')
 	current = e.target.innerHTML
+	showContent(current)
 	let currentEl = ul.querySelector('.active')
-	console.log(items)
-console.log(current)
 		if ( items[items.length-1] - current == 0 && items[items.length-1] < pages ){ // right nums 
 			items.forEach(function(i, value) {
-			items[value]++
-			myArray[value].innerHTML = items[value]
-		//	console.log(myArray[value])
-		})//end foreach
-		currentEl.classList.remove('active')
-		e.target.previousElementSibling.classList.add('active') // if prev not null
-		kek()
+				items[value]++
+				myArray[value].innerHTML = items[value]
+			})//end foreach
+			currentEl.classList.remove('active')
+			e.target.previousElementSibling.classList.add('active') // if prev not null
+			kek()
 		} else if (items[0] - current == 0 &&  items[0] > 1){ // left nums
 			items.forEach(function(i, value) {
-			items[value]--
-			myArray[value].innerHTML = items[value]
-			console.log(myArray[value])
-		})//end foreach
-		currentEl.classList.remove('active')
-		e.target.nextElementSibling.classList.add('active') // if prev not null
-		console.log(items)
-		kek()
-		} else if (e.target.innerHTML == pages){
-			items = []
-   // push 5 раз от 15+1 
-   
-    var comp = pages - options.maxPages +1
-    for (let i = comp; i <= pages; i++) { //???
-    
-        items.push(i)
-    
-	console.log(items)
-} //end for
-	ul.innerHTML = ''
-	items.forEach(function(i, value) {
-			var li = document.createElement('li')
-			li.innerHTML = i 
-			ul.append(li)
-		}) 
-		current = pages
-		myArray = Array.from(ul.childNodes)
-		kek()
-		} else if (e.target.innerHTML == 1){ // click 1
-			items = []
-			var comp = 1
-    		for (let i = comp; i <= options.maxPages; i++) { //???
-				items.push(i)
-    			console.warn(items)
-			} //end for
+				items[value]--
+				myArray[value].innerHTML = items[value]
+			})//end foreach
+			currentEl.classList.remove('active')
+			e.target.nextElementSibling.classList.add('active') // if prev not null
+			kek()
+			} else if (e.target.innerHTML == pages) {
+				items = []
+				var comp = pages - options.maxPages + 1
+				for (let i = comp; i <= pages; i++) { //???
+					items.push(i)	
+				} //end for
 			ul.innerHTML = ''
 			items.forEach(function(i, value) {
 				var li = document.createElement('li')
 				li.innerHTML = i 
 				ul.append(li)
 			}) 
-		current = 1
-		myArray = Array.from(ul.childNodes)
-		kek()
-		}	
-	}
+			current = pages
+			myArray = Array.from(ul.childNodes)
+			kek()
+			} else if (e.target.innerHTML == 1){ // click 1
+				items = []
+				var comp = 1
+				for (let i = comp; i <= options.maxPages; i++) { //???
+					items.push(i)
+				} //end for
+				ul.innerHTML = ''
+				items.forEach(function(i, value) {
+					var li = document.createElement('li')
+					li.innerHTML = i 
+					ul.append(li)
+				}) 
+				current = 1
+				myArray = Array.from(ul.childNodes)
+				kek()
+			}	
+		}
 })
 
 function kek() {
 	var leftside =  items[0] - 1 
 var rightside = pages - items[items.length-1]
-	console.log(' left side: ' +leftside + 'rightside: ' + rightside)
+	//console.log(' left side: ' +leftside + 'rightside: ' + rightside)
 if ( leftside == 0 && rightside >= 2 ){
 	prevIndex.remove()
 	ul.append(dots_right)
 	ul.append(nextIndex)
 	ul.lastChild.classList.remove('active')
-//	ul.firstChild.classList.add('active')
-//	current = 1
 	if (current == 1) {
 		ul.firstChild.classList.add('active')
 		ul.lastChild.classList.remove('active')
-	
 	} else {
 		ul.firstChild.classList.remove('active')
 	}
-}
-	else if (leftside == 1 && rightside >= 2) {
-
+} else if (leftside == 1 && rightside >= 2) {
     ul.prepend(prevIndex)
 	ul.firstChild.classList.remove('active')
 	dots_left.remove()
@@ -245,12 +205,9 @@ if ( leftside == 0 && rightside >= 2 ){
     nextIndex.remove()
 	ul.prepend(dots_left)
 	ul.prepend(prevIndex)
-	
-	console.log(current)
 	if (current == pages){
 		ul.firstChild.classList.remove('active')
 		ul.lastChild.classList.add('active')	
-		console.log('leel')
 	} else {
 		ul.lastChild.classList.remove('active')
 	}
@@ -262,21 +219,16 @@ if ( (pages - items[items.length-1]) > 2 ) {
 	ul.append(nextIndex)
 }
 
-startPos = (options.startFrom - 1) * options.newsToShow
-endPos = startPos + options.newsToShow
-
+function showContent(index){
+	startPos = (index - 1) * options.newsToShow // 2 * 4 = 8 
+endPos = parseInt(startPos) + parseInt(options.newsToShow)   // 8 + 4 = 12
 let NewsArray = news.slice(startPos, endPos)
-console.log(NewsArray)
+
 for (let value of NewsArray) {
-	console.log(value['title'])
+	console.warn('страница: '+ current + ' контент: '+ value['title'])
 }
 //let myArray = Array.from(ul.childNodes)
-
-
-console.log(pages)
-
-
-//console.log(nextIdnex)
+}
 
 function right() {
 
@@ -298,19 +250,15 @@ function right() {
 			current++
 		}
 	}
-	
-//setRightSide(items[0], items[items.length - 1], items)
-
 kek()
+showContent(current)
 } //right
 
 
 function left() {
 	let active = ul.querySelector('.active')
-	console.warn ((items[1] - current) )
 	if ((items[1] - current) == 0 && (items[0] !== 1)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
 		items.forEach(function(i, value) {
-			console.log(items[value])
 			items[value]--
 			myArray[value].innerHTML = items[value]
 		})
@@ -323,11 +271,9 @@ function left() {
 			current--
 		}
 	}
-//	setLeftSide(items[0], items[items.length - 1], items)
-	console.log(myArray)
 	kek()
+	showContent(current)
 }//left
-
 
 </script> 
     <style type="text/css">
