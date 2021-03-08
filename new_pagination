@@ -80,7 +80,7 @@ let current = 1;
 let ul = document.querySelector(options.container)
 
 
-
+console.log(pages)
 
 let prevIndex = document.createElement('li')
 prevIndex.innerHTML = '1'
@@ -88,8 +88,8 @@ let dots_left = document.createElement('li')
 dots_left.innerHTML = '...'
 let dots_right = document.createElement('li')
 dots_right.innerHTML = '...'
-let nextIdnex = document.createElement('li')
-nextIdnex.innerHTML = pages
+let nextIndex = document.createElement('li')
+nextIndex.innerHTML = pages
 
 function setStart() {
 	items = []
@@ -126,7 +126,7 @@ let ul = document.querySelector(options.container)
 items.forEach(function(i, value) {
 		var li= document.createElement('li')
 		li.innerHTML = i 
-		ul.append(li)
+	//	ul.append(li)
 	})
 	console.log(ul)
 //	ul.firstChild.classList.add('active')
@@ -145,24 +145,19 @@ ul.addEventListener('click', (e) => {
 	e.target.classList.add('active')
 	current = e.target.innerHTML
 	let currentEl = ul.querySelector('.active')
-	console.log(Math.min(...items))
-
-	if ( currentEl.nextElementSibling !== null && isNaN(currentEl.nextElementSibling.innerHTML) && currentEl.previousElementSibling !== null ){ // right след - существует, след - ..., пред. существует
-		items.forEach(function(i, value) {
+	console.log(items)
+console.log(current)
+		if ( items[items.length-1] - current == 0 && items[items.length-1] < pages ){ // right nums 
+			items.forEach(function(i, value) {
 			items[value]++
 			myArray[value].innerHTML = items[value]
-			console.log(myArray[value])
+		//	console.log(myArray[value])
 		})//end foreach
 		currentEl.classList.remove('active')
 		e.target.previousElementSibling.classList.add('active') // if prev not null
-		console.log(items)
-		
-		setLeftSide(items[0], items[items.length - 1], items)
-		setRightSide(items[0], items[items.length - 1], items)
-	} 
-
-	if ( currentEl.previousElementSibling !== null && isNaN(currentEl.previousElementSibling.innerHTML) && currentEl.previousElementSibling !== null && parseInt(currentEl.innerHTML) !== pages){ // right след - существует, след - ..., пред. существует
-		items.forEach(function(i, value) {
+		kek()
+		} else if (items[0] - current == 0 &&  items[0] > 1){ // left nums
+			items.forEach(function(i, value) {
 			items[value]--
 			myArray[value].innerHTML = items[value]
 			console.log(myArray[value])
@@ -170,46 +165,102 @@ ul.addEventListener('click', (e) => {
 		currentEl.classList.remove('active')
 		e.target.nextElementSibling.classList.add('active') // if prev not null
 		console.log(items)
-		
-		setLeftSide(items[0], items[items.length - 1], items)
-		setRightSide(items[0], items[items.length - 1], items)
-	} 
-
-	
-
-	if ( currentEl.innerHTML == 1 && (Math.min(...items)  - 1 > 1 ) ){ // click on 1
-		ul.innerHTML = ''
-		setStart()
+		kek()
+		} else if (e.target.innerHTML == pages){
+			items = []
+   // push 5 раз от 15+1 
+   
+    var comp = pages - options.maxPages +1
+    for (let i = comp; i <= pages; i++) { //???
+    
+        items.push(i)
+    
+	console.log(items)
+} //end for
+	ul.innerHTML = ''
+	items.forEach(function(i, value) {
+			var li = document.createElement('li')
+			li.innerHTML = i 
+			ul.append(li)
+		}) 
+		current = pages
 		myArray = Array.from(ul.childNodes)
-		ul.firstChild.classList.add('active')
-		console.log(myArray)
-		if (pages - items[items.length - 1] >= 2) {
-			ul.append(dots_right)
-			ul.append(nextIdnex)
-		}
-
-
-	} 
-	
-	if ( parseInt(currentEl.innerHTML) == pages && (pages - Math.max(...items) > 1 ) ){ // click on last
-		console.log('123')
-		ul.innerHTML = ''
-		setEnd()
+		kek()
+		} else if (e.target.innerHTML == 1){ // click 1
+			items = []
+			var comp = 1
+    		for (let i = comp; i <= options.maxPages; i++) { //???
+				items.push(i)
+    			console.warn(items)
+			} //end for
+			ul.innerHTML = ''
+			items.forEach(function(i, value) {
+				var li = document.createElement('li')
+				li.innerHTML = i 
+				ul.append(li)
+			}) 
+		current = 1
 		myArray = Array.from(ul.childNodes)
-		//ul.firstChild.classList.add('active')
-		console.log(myArray)
-		console.log(pages - items[items.length - 1])
-		if ( pages-items[0]  >= 2) {
-			ul.prepend(dots_left)
-			ul.prepend(prevIndex)
-			current = pages
-			ul.lastChild.classList.add('active')
+		kek()
+		}	
 	}
-	}//end of 1 ... x, y, z ... n 
+})
+
+function kek() {
+	var leftside =  items[0] - 1 
+var rightside = pages - items[items.length-1]
+	console.log(' left side: ' +leftside + 'rightside: ' + rightside)
+if ( leftside == 0 && rightside >= 2 ){
+	prevIndex.remove()
+	ul.append(dots_right)
+	ul.append(nextIndex)
+	ul.lastChild.classList.remove('active')
+//	ul.firstChild.classList.add('active')
+//	current = 1
+	if (current == 1) {
+		ul.firstChild.classList.add('active')
+		ul.lastChild.classList.remove('active')
 	
-}})
+	} else {
+		ul.firstChild.classList.remove('active')
+	}
+}
+	else if (leftside == 1 && rightside >= 2) {
 
+    ul.prepend(prevIndex)
+	ul.firstChild.classList.remove('active')
+	dots_left.remove()
+    ul.append(dots_right)
+    ul.append(nextIndex)
+} else if ( leftside >= 2 && rightside >=2) {
+    ul.insertBefore(dots_left, ul.firstElementChild.nextElementSibling);
+	ul.append(dots_right)
+	ul.append(nextIndex)
+} else if ( leftside >=2  && rightside == 1) {
+    dots_right.remove()
+	ul.append(nextIndex)
+	ul.lastChild.classList.remove('active')
+	
+} else if ( leftside >= 2 && rightside == 0){
+    nextIndex.remove()
+	ul.prepend(dots_left)
+	ul.prepend(prevIndex)
+	
+	console.log(current)
+	if (current == pages){
+		ul.firstChild.classList.remove('active')
+		ul.lastChild.classList.add('active')	
+		console.log('leel')
+	} else {
+		ul.lastChild.classList.remove('active')
+	}
+}
 
+}
+if ( (pages - items[items.length-1]) > 2 ) {
+	ul.append(dots_right)
+	ul.append(nextIndex)
+}
 
 startPos = (options.startFrom - 1) * options.newsToShow
 endPos = startPos + options.newsToShow
@@ -221,13 +272,14 @@ for (let value of NewsArray) {
 }
 //let myArray = Array.from(ul.childNodes)
 
-if (pages - items[items.length - 1] >= 2) {
-	ul.append(dots_right)
-	ul.append(nextIdnex)
-		console.log(' >=2')
-}
+
+console.log(pages)
+
+
+//console.log(nextIdnex)
+
 function right() {
-	
+
 	var leftActive = true;
 	let active = ul.querySelector('.active')
 	
@@ -247,14 +299,18 @@ function right() {
 		}
 	}
 	
-setRightSide(items[0], items[items.length - 1], items)
+//setRightSide(items[0], items[items.length - 1], items)
+
+kek()
 } //right
 
 
 function left() {
 	let active = ul.querySelector('.active')
+	console.warn ((items[1] - current) )
 	if ((items[1] - current) == 0 && (items[0] !== 1)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
 		items.forEach(function(i, value) {
+			console.log(items[value])
 			items[value]--
 			myArray[value].innerHTML = items[value]
 		})
@@ -267,57 +323,11 @@ function left() {
 			current--
 		}
 	}
-	setLeftSide(items[0], items[items.length - 1], items)
+//	setLeftSide(items[0], items[items.length - 1], items)
 	console.log(myArray)
+	kek()
 }//left
 
-
-function setRightSide(firstIndex, lastIndex, array) {
-	if (pages - lastIndex == 1) {
-		ul.lastChild.previousElementSibling.remove() // remove ...
-	}
-
-	if (pages - lastIndex == 0 && current !== pages) {
-		ul.lastChild.remove()
-	}
-
-	if (firstIndex - 1 > 1) {
-		ul.prepend(dots_left)
-		ul.prepend(prevIndex)
-	}
-
-	if (firstIndex - 1 == 1) {
-		prevIndex.classList.remove('active')
-		ul.prepend(prevIndex)
-		
-	}
-}
-
-function setLeftSide(firstIndex, lastIndex, array) {
-	if ( (firstIndex - 1 == 1) && isNaN(ul.firstChild.nextElementSibling.innerHTML) ){
-		ul.firstChild.nextElementSibling.remove() // remove ...
-		console.log('1')
-		console.log(items)
-	}
-
-	if (firstIndex - 1 == 0 && current !== 1) {
-		ul.firstChild.remove() // remove ...
-		console.log('2')
-	}
-
-	if (pages - firstIndex == options.maxPages) {
-		lastIndexNum = document.createElement('li')
-		lastIndexNum.innerHTML = lastIndex+1
-		ul.append(lastIndexNum)
-		console.log(lastIndexNum)
-		console.log('3')
-	}
-	if (pages - firstIndex > options.maxPages) {
-		ul.insertBefore(dots_right, ul.lastChild)
-		console.log('4')
-
-	}
-}
 
 </script> 
     <style type="text/css">
