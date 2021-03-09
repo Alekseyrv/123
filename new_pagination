@@ -7,11 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <div class= 'container'>
         <ul class="ul-pagination"></ul>
+
     </div>
-	<button onclick="left()"><<</button>
-    <button onclick="right()">>></button>
+	<div class="buttons">	
+		<button onclick="left()"><<</button>
+		<button onclick="right()">>></button>
+	</div>
+
 	<div class="window">
 	</div>
 
@@ -295,7 +299,8 @@ function left() {
         text-decoration: underline;
       }
       ul {
-        list-style: none
+        list-style: none;
+		padding-left: 0;
 
       }
       li {
@@ -325,6 +330,28 @@ function left() {
 		text-align: center;
 		float:left;
 	  }
+	  .ul-pagination {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		  margin-top: 50px;
+	
+	  }
+	  .container {
+		  display: flex;
+		  justify-content: center;
+		  margin: 0 auto;
+	  }
+	  .buttons {
+		  width: 120px;
+		  margin: 0 auto;
+		  display: flex;
+		  justify-content: space-between;
+	  }
+	  button {
+		padding: 5px 12px;
+	  }
+	
     </style>
 </body>
 </html>
