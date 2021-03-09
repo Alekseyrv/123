@@ -108,7 +108,6 @@ function setStart() {
 	showContent(currentPage)
 }
 
-
 setStart()
 let myArray = Array.from(ul.childNodes)
 ul.firstChild.classList.add('active')
@@ -209,12 +208,11 @@ function setHelpers() {
 	}
 }
 
-
 function showContent(index){
 	var window = document.querySelector('.window')
 	window.innerHTML = ''
-	startPos = (index - 1) * newsToShow // 2 * 4 = 8 
-	endPos = parseInt(startPos) + parseInt(newsToShow) // 8 + 4 = 12
+	startPos = (index - 1) * newsToShow 
+	endPos = parseInt(startPos) + parseInt(newsToShow) 
 	arr.slice(startPos, endPos)
 		.forEach(value => {
 			let div = document.createElement('div')
@@ -263,9 +261,6 @@ this.left = function (){
 } //left
 }
 const pagination = new paginationCustom('.ul-pagination', 5, 4, news)
-
-
-
 
 </script> 
     <style type="text/css">
