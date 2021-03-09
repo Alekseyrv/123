@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+	<div class="window">
+	</div>
     <div class= 'container'>
         <ul class="ul-pagination"></ul>
 
@@ -16,8 +18,7 @@
 		<button onclick="right()">>></button>
 	</div>
 
-	<div class="window">
-	</div>
+
 	<!--<div><img src="./1.png" alt=""></div>-->
     <script>
         let options= {
@@ -78,13 +79,12 @@ let news = [
 	{title: '4949', subtitle: 'subtitle49', img: '6.png'},
 	{title: '50', subtitle: 'subtitle50', img: '7.png'},
 	]
-let items = []
+	let items = []
 let pages = Math.ceil(news.length / options.newsToShow);
 let rightActive = true
 let leftActive = false;
 let current = 1;
 let ul = document.querySelector(options.container)
-
 let prevIndex = document.createElement('li')
 prevIndex.innerHTML = '1'
 let dots_left = document.createElement('li')
@@ -96,194 +96,179 @@ nextIndex.innerHTML = pages
 
 function setStart() {
 	items = []
-	//создаем начальный массив
-for (let i = 1; i < pages; i++) {
-	if (i <= options.maxPages) {
-		var element = i
-		items.push(element)
-	}
-} //end for
+		//создаем начальный массив
+	for(let i = 1; i < pages; i++) {
+		if(i <= options.maxPages) {
+			var element = i
+			items.push(element)
+		}
+	} //end for
 	let ul = document.querySelector(options.container)
 	items.forEach(function(i, value) {
-		var li = document.createElement('li')
-		li.innerHTML = value + 1
-		ul.append(li)
-	})
-//	ul.firstChild.classList.add('active')
+			var li = document.createElement('li')
+			li.innerHTML = value + 1
+			ul.append(li)
+		})
+		//	ul.firstChild.classList.add('active')
 	current = 1
 	ul.append(dots_right)
 	ul.append(nextIndex)
 	showContent(current)
 }
-
 setStart()
-
 let myArray = Array.from(ul.childNodes)
 ul.firstChild.classList.add('active')
 ul.addEventListener('click', (e) => {
-	if (e.target !== ul && !isNaN(e.target.innerHTML) && !e.target.classList.contains('.active')) {
-	ul.querySelector('.active').classList.remove('active')
-	e.target.classList.add('active')
-	current = e.target.innerHTML
-	showContent(current)
-	let currentEl = ul.querySelector('.active')
-		if ( items[items.length-1] - current == 0 && items[items.length-1] < pages ){ // right nums 
+	if(e.target !== ul && !isNaN(e.target.innerHTML) && !e.target.classList.contains('.active')) {
+		ul.querySelector('.active').classList.remove('active')
+		e.target.classList.add('active')
+		current = e.target.innerHTML
+		showContent(current)
+		let currentEl = ul.querySelector('.active')
+		if(items[items.length - 1] - current == 0 && items[items.length - 1] < pages) { // right nums 
 			items.forEach(function(i, value) {
-				items[value]++
-				myArray[value].innerHTML = items[value]
-			})//end foreach
+					items[value]++
+						myArray[value].innerHTML = items[value]
+				}) //end foreach
 			currentEl.classList.remove('active')
 			e.target.previousElementSibling.classList.add('active') // if prev not null
 			kek()
-		} else if (items[0] - current == 0 &&  items[0] > 1){ // left nums
+		} else if(items[0] - current == 0 && items[0] > 1) { // left nums
 			items.forEach(function(i, value) {
-				items[value]--
-				myArray[value].innerHTML = items[value]
-			})//end foreach
+					items[value]--
+						myArray[value].innerHTML = items[value]
+				}) //end foreach
 			currentEl.classList.remove('active')
 			e.target.nextElementSibling.classList.add('active') // if prev not null
 			kek()
-			} else if (e.target.innerHTML == pages) {
-				items = []
-				var comp = pages - options.maxPages + 1
-				for (let i = comp; i <= pages; i++) { //???
-					items.push(i)	
-				} //end for
+		} else if(e.target.innerHTML == pages) {
+			items = []
+			var comp = pages - options.maxPages + 1
+			for(let i = comp; i <= pages; i++) { //???
+				items.push(i)
+			} //end for
 			ul.innerHTML = ''
 			items.forEach(function(i, value) {
 				var li = document.createElement('li')
-				li.innerHTML = i 
+				li.innerHTML = i
 				ul.append(li)
-			}) 
+			})
 			current = pages
 			myArray = Array.from(ul.childNodes)
 			kek()
-			} else if (e.target.innerHTML == 1){ // click 1
-				items = []
-				var comp = 1
-				for (let i = comp; i <= options.maxPages; i++) { //???
-					items.push(i)
-				} //end for
-				ul.innerHTML = ''
-				items.forEach(function(i, value) {
-					var li = document.createElement('li')
-					li.innerHTML = i 
-					ul.append(li)
-				}) 
-				current = 1
-				myArray = Array.from(ul.childNodes)
-				kek()
-			}	
+		} else if(e.target.innerHTML == 1) { // click 1
+			items = []
+			var comp = 1
+			for(let i = comp; i <= options.maxPages; i++) { //???
+				items.push(i)
+			} //end for
+			ul.innerHTML = ''
+			items.forEach(function(i, value) {
+				var li = document.createElement('li')
+				li.innerHTML = i
+				ul.append(li)
+			})
+			current = 1
+			myArray = Array.from(ul.childNodes)
+			kek()
 		}
+	}
 })
 
 function kek() {
-	var leftside =  items[0] - 1 
-var rightside = pages - items[items.length-1]
-	//console.log(' left side: ' +leftside + 'rightside: ' + rightside)
-if ( leftside == 0 && rightside >= 2 ){
-	prevIndex.remove()
-	ul.append(dots_right)
-	ul.append(nextIndex)
-	ul.lastChild.classList.remove('active')
-	if (current == 1) {
-		ul.firstChild.classList.add('active')
+	var leftside = items[0] - 1
+	var rightside = pages - items[items.length - 1]
+		//console.log(' left side: ' +leftside + 'rightside: ' + rightside)
+	if(leftside == 0 && rightside >= 2) {
+		prevIndex.remove()
+		ul.append(dots_right)
+		ul.append(nextIndex)
 		ul.lastChild.classList.remove('active')
-	} else {
+		if(current == 1) {
+			ul.firstChild.classList.add('active')
+			ul.lastChild.classList.remove('active')
+		} else {
+			ul.firstChild.classList.remove('active')
+		}
+	} else if(leftside == 1 && rightside >= 2) {
+		ul.prepend(prevIndex)
 		ul.firstChild.classList.remove('active')
-	}
-} else if (leftside == 1 && rightside >= 2) {
-    ul.prepend(prevIndex)
-	ul.firstChild.classList.remove('active')
-	dots_left.remove()
-    ul.append(dots_right)
-    ul.append(nextIndex)
-} else if ( leftside >= 2 && rightside >=2) {
-    ul.insertBefore(dots_left, ul.firstElementChild.nextElementSibling);
-	ul.append(dots_right)
-	ul.append(nextIndex)
-} else if ( leftside >=2  && rightside == 1) {
-    dots_right.remove()
-	ul.append(nextIndex)
-	ul.lastChild.classList.remove('active')
-	
-} else if ( leftside >= 2 && rightside == 0){
-    nextIndex.remove()
-	ul.prepend(dots_left)
-	ul.prepend(prevIndex)
-	if (current == pages){
-		ul.firstChild.classList.remove('active')
-		ul.lastChild.classList.add('active')	
-	} else {
+		dots_left.remove()
+		ul.append(dots_right)
+		ul.append(nextIndex)
+	} else if(leftside >= 2 && rightside >= 2) {
+		ul.insertBefore(dots_left, ul.firstElementChild.nextElementSibling);
+		ul.append(dots_right)
+		ul.append(nextIndex)
+	} else if(leftside >= 2 && rightside == 1) {
+		dots_right.remove()
+		ul.append(nextIndex)
 		ul.lastChild.classList.remove('active')
+	} else if(leftside >= 2 && rightside == 0) {
+		nextIndex.remove()
+		ul.prepend(dots_left)
+		ul.prepend(prevIndex)
+		if(current == pages) {
+			ul.firstChild.classList.remove('active')
+			ul.lastChild.classList.add('active')
+		} else {
+			ul.lastChild.classList.remove('active')
+		}
 	}
 }
-
-}
-if ( (pages - items[items.length-1]) > 2 ) {
+if((pages - items[items.length - 1]) > 2) {
 	ul.append(dots_right)
 	ul.append(nextIndex)
 }
 
-function showContent(index){
+function showContent(index) {
 	var window = document.querySelector('.window')
 	window.innerHTML = ''
 	startPos = (index - 1) * options.newsToShow // 2 * 4 = 8 
-endPos = parseInt(startPos) + parseInt(options.newsToShow)   // 8 + 4 = 12
-let NewsArray = news.slice(startPos, endPos)
-
-for (let value of NewsArray) {
-	console.warn('страница: '+ current + ' контент: '+ value['title'])
-	
-	var div = document.createElement('div')
-	div.classList.add('window__small')
-	//div.innerHTML = `контент ${value['title']}`
-	console.log(value['img'])
-	//div.style.backgroundImage = `./${value['img']}` "url('img_tree.png')";
-	div.style.backgroundImage = `url(./${value['img']})`
-	window.append(div)
-	
-	
-}
-//let myArray = Array.from(ul.childNodes)
+	endPos = parseInt(startPos) + parseInt(options.newsToShow) // 8 + 4 = 12
+	let NewsArray = news.slice(startPos, endPos)
+	for(let value of NewsArray) {
+		console.warn('страница: ' + current + ' контент: ' + value['title'])
+		var div = document.createElement('div')
+		div.classList.add('window__small')
+			//div.innerHTML = `контент ${value['title']}`
+		console.log(value['img'])
+			//div.style.backgroundImage = `./${value['img']}` "url('img_tree.png')";
+		div.style.backgroundImage = `url(./img/${value['img']})`
+		window.append(div)
+	}
+	//let myArray = Array.from(ul.childNodes)
 }
 
 function right() {
-
 	var leftActive = true;
 	let active = ul.querySelector('.active')
-	
-	if ((items[items.length - 1] - current) == 1 && (items[items.length - 1] !== pages)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
-
+	if((items[items.length - 1] - current) == 1 && (items[items.length - 1] !== pages)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
 		items.forEach(function(i, value) {
 			items[value]++
-			myArray[value].innerHTML = items[value]
+				myArray[value].innerHTML = items[value]
 		})
 		current++
 	} else {
-		if (active.nextElementSibling !== null) {
+		if(active.nextElementSibling !== null) {
 			active.classList.remove('active')
 			active.nextElementSibling.classList.add('active')
-			
 			current++
 		}
 	}
-kek()
-showContent(current)
+	kek()
+	showContent(current)
 } //right
-
-
 function left() {
 	let active = ul.querySelector('.active')
-	if ((items[1] - current) == 0 && (items[0] !== 1)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
+	if((items[1] - current) == 0 && (items[0] !== 1)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
 		items.forEach(function(i, value) {
 			items[value]--
-			myArray[value].innerHTML = items[value]
+				myArray[value].innerHTML = items[value]
 		})
 		current--
 	} else {
-
-		if ((active.previousElementSibling !== null) && !(isNaN(active.previousElementSibling.innerHTML))) {
+		if((active.previousElementSibling !== null) && !(isNaN(active.previousElementSibling.innerHTML))) {
 			active.previousElementSibling.classList.add('active')
 			active.classList.remove('active')
 			current--
@@ -291,8 +276,7 @@ function left() {
 	}
 	kek()
 	showContent(current)
-}//left
-
+} //left
 </script> 
     <style type="text/css">
       .active {
@@ -355,6 +339,7 @@ function left() {
 	  }
 	  button {
 		padding: 5px 12px;
+		cursor: pointer;
 	  }
 	
     </style>
