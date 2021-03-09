@@ -14,20 +14,11 @@
 
     </div>
 	<div class="buttons">	
-		<button onclick="left()"><<</button>
-		<button onclick="right()">>></button>
+		<button onclick="pagination.left()"><<</button>
+		<button onclick="pagination.right()">>></button>
 	</div>
 
     <script>
-        let options= {
-            newsToShow: '4',
-            container: '.ul-pagination',
-            maxPages: '5'
-        }
-
-function paginationCustom(params){
-
-}
 
 let news = [
 	{title: '1111', subtitle: 'subtitle1', img: '1.png'},
@@ -82,13 +73,12 @@ let news = [
 	{title: '50', subtitle: 'subtitle50', img: '7.png'},
 	]
 
+function paginationCustom(wrap, pagesToShow, newsToShow, arr){
 
 let items = []
-let pages = Math.ceil(news.length / options.newsToShow);
-let rightActive = true
-let leftActive = false;
+let pages = Math.ceil(arr.length / newsToShow);
 let currentPage = 1;
-let ul = document.querySelector(options.container)
+let ul = document.querySelector(wrap)
 let prevIndex = document.createElement('li')
 prevIndex.innerHTML = '1'
 let dots_left = document.createElement('li')
@@ -102,18 +92,16 @@ function setStart() {
 	items = []
 		//создаем начальный массив
 	for(let i = 1; i < pages; i++) {
-		if(i <= options.maxPages) {
+		if(i <= pagesToShow) {
 			var element = i
 			items.push(element)
 		}
 	} //end for
-	let ul = document.querySelector(options.container)
-	items.forEach(function(i, value) {
+	items.forEach(value => {
 			var li = document.createElement('li')
-			li.innerHTML = value + 1
+			li.innerHTML = value 
 			ul.append(li)
 		})
-		//	ul.firstChild.classList.add('active')
 	currentPage = 1
 	ul.append(dots_right)
 	ul.append(nextIndex)
@@ -132,14 +120,15 @@ ul.addEventListener('click', (e) => {
 		showContent(currentPage)
 		//let currentEl = ul.querySelector('.active')
 		if(items[items.length - 1] - currentPage == 0 && items[items.length - 1] < pages) { // right nums +1  
-			items.forEach(function(i, value) {
+			items.forEach((i,value) => {
+				console.log(i , value)
 					items[value]++
 						myArray[value].innerHTML = items[value]
 				}) //end foreach
 			e.target.classList.remove('active')
 			e.target.previousElementSibling.classList.add('active') 
 		} else if(items[0] - currentPage == 0 && items[0] > 1) { // left nums +1
-			items.forEach(function(i, value) {
+			items.forEach((i,value) => {
 					items[value]--
 						myArray[value].innerHTML = items[value]
 				}) //end foreach
@@ -147,12 +136,12 @@ ul.addEventListener('click', (e) => {
 			e.target.nextElementSibling.classList.add('active') // if prev not null
 		} else if(e.target.innerHTML == pages) {
 			items = []
-			var pagesStartFrom = pages - options.maxPages + 1 // pages start from 
+			var pagesStartFrom = pages - pagesToShow+ 1 // pages start from 
 			for(let i = pagesStartFrom; i <= pages; i++) { 
 				items.push(i)
 			} //end for
 			ul.innerHTML = ''
-			items.forEach(function(i, value) {
+			items.forEach((i,value) => {
 				var li = document.createElement('li')
 				li.innerHTML = i
 				ul.append(li)
@@ -162,12 +151,12 @@ ul.addEventListener('click', (e) => {
 		} else if(e.target.innerHTML == 1) { // click firstchild (1)
 			items = []
 			var pagesStartFrom = 1 // pages start from 1st
-			for(let i = pagesStartFrom; i <= options.maxPages; i++) { 
+			for(let i = pagesStartFrom; i <= pagesToShow; i++) { 
 				items.push(i)
 			} //end for
 			ul.innerHTML = ''
-			items.forEach(function(i, value) {
-				var li = document.createElement('li')
+			items.forEach((i,value) => {
+				let li = document.createElement('li')
 				li.innerHTML = i
 				ul.append(li)
 			})
@@ -179,8 +168,8 @@ ul.addEventListener('click', (e) => {
 })
 
 function setHelpers() {
-	var leftside = items[0] - 1
-	var rightside = pages - items[items.length - 1]
+	let leftside = items[0] - 1
+	let rightside = pages - items[items.length - 1]
 		//console.log(' left side: ' +leftside + 'rightside: ' + rightside)
 	if(leftside == 0 && rightside >= 2) {
 		prevIndex.remove()
@@ -221,30 +210,25 @@ function setHelpers() {
 }
 
 
-
-function showContent(index) {
+function showContent(index){
 	var window = document.querySelector('.window')
 	window.innerHTML = ''
-	startPos = (index - 1) * options.newsToShow // 2 * 4 = 8 
-	endPos = parseInt(startPos) + parseInt(options.newsToShow) // 8 + 4 = 12
-	let NewsArray = news.slice(startPos, endPos)
-	for(let value of NewsArray) {
-		console.warn('страница: ' + currentPage + ' контент: ' + value['title'])
-		var div = document.createElement('div')
-		div.classList.add('window__small')
-			//div.innerHTML = `контент ${value['title']}`
-		console.log(value['img'])
-			//div.style.backgroundImage = `./${value['img']}` "url('img_tree.png')";
-		div.style.backgroundImage = `url(./img/${value['img']})`
-		window.append(div)
-	}
+	startPos = (index - 1) * newsToShow // 2 * 4 = 8 
+	endPos = parseInt(startPos) + parseInt(newsToShow) // 8 + 4 = 12
+	arr.slice(startPos, endPos)
+		.forEach(value => {
+			let div = document.createElement('div')
+			div.classList.add('window__small')
+			div.style.backgroundImage = `url(./img/${value['img']})`
+			window.append(div)
+		})
+		//console.warn('страница: ' + currentPage + ' контент: ' + value['title'])
 }
 
-function right() {
-	var leftActive = true;
+this.right = function () {
 	let active = ul.querySelector('.active')
 	if((items[items.length - 1] - currentPage) == 1 && (items[items.length - 1] !== pages)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
-		items.forEach(function(i, value) {
+		items.forEach((i,value) => {
 			items[value]++
 				myArray[value].innerHTML = items[value]
 		})
@@ -259,10 +243,10 @@ function right() {
 	setHelpers()
 	showContent(currentPage)
 } //right
-function left() {
+this.left = function (){
 	let active = ul.querySelector('.active')
 	if((items[1] - currentPage) == 0 && (items[0] !== 1)) { // 1 2 3 4 5, 5 - 4 = 1 кол-во элементов после active
-		items.forEach(function(i, value) {
+		items.forEach((i,value) => {
 			items[value]--
 				myArray[value].innerHTML = items[value]
 		})
@@ -277,6 +261,10 @@ function left() {
 	setHelpers()
 	showContent(currentPage)
 } //left
+}
+const pagination = new paginationCustom('.ul-pagination', 5, 4, news)
+
+
 
 
 </script> 
@@ -318,7 +306,7 @@ function left() {
 		text-align: center;
 		float:left;
 		background-size: contain;
-	
+		background-color: black;	
 	  }
 
 	  .ul-pagination {
